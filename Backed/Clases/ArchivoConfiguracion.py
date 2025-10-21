@@ -54,6 +54,38 @@ class CRecursoConfiguracion():
         print(f"ID: {self.id}, Cantidad Recurso: {self.cantidadrecurso}")
 
 
+#[C1]#######################################################
+
+class CCliente():
+    def __init__(self, nit, nombre, usuario, clave, direccion,correoelectronico):
+        self.nit = nit
+        self.nombre = nombre
+        self.usuario = usuario
+        self.clave = clave
+        self.direccion = direccion
+        self.correoelectronico = correoelectronico
+        self.listainstancias = []
+    
+    def desplegar(self):
+        print(f"NIT: {self.nit}, Nombre: {self.nombre}, Usuario: {self.usuario}, Clave: {self.clave}, Direccion: {self.direccion}, Correo Electronico: {self.correoelectronico}")
+        print('-- [Instancias] --')
+        for instancia in self.listainstancias:
+            instancia.desplegar()
+        print('-- [Fin Instancias] --')
+        
+#[C2]#######################################################
+
+class CInstancias():
+    def __init__(self, id, idconfiguracion, nombre, fechainicio, estado, fechafinal):
+        self.id = id
+        self.idconfiguracion = idconfiguracion
+        self.nombre = nombre
+        self.fechainicio = fechainicio
+        self.estado = estado
+        self.fechafinal = fechafinal
+    
+    def desplegar(self):
+        print(f"ID: {self.id}, ID Configuracion: {self.idconfiguracion}, Nombre: {self.nombre}, Fecha Inicio: {self.fechainicio}, Estado: {self.estado}, Fecha Final: {self.fechafinal}")
 
 ########################################################
 class CArchivoConfiguracion():
