@@ -58,8 +58,27 @@ class SistemaLeerArchivosXML():
     def obtenerlistaRecursos(self):
         try:
             self.msg('Obtener Lista Recursos')
-            XMLlistaRecursos = self.XMLArchivoconfiguracion.getElementsByTagName('listaRecursos')
-            for XMLrecurso in XMLlistaRecursos:
-                print(XMLrecurso.toxml())
+            XMLlistaRecursos = self.XMLArchivoconfiguracion.getElementsByTagName('listaRecursos')[0]
+            # print(XMLlistaRecursos.toxml())
+            #Obtener Recursos
+            XMLVariosRecursos = XMLlistaRecursos.getElementsByTagName('recurso')
+            for XMLRecurso in XMLVariosRecursos:
+                print(XMLRecurso.toxml())
+                Recursoid = XMLRecurso.getAttribute('id')
+                RecursoNombre = XMLRecurso.getElementsByTagName('nombre')[0].firstChild.data.lstrip()
+                RecursoAbreviatura = XMLRecurso.getElementsByTagName('abreviatura')[0].firstChild.data.strip()
+                RecursoMetrica = XMLRecurso.getElementsByTagName('metrica')[0].firstChild.data.lstrip()
+                RecursoTipo = XMLRecurso.getElementsByTagName('tipo')[0].firstChild.data.lstrip()
+                RecursoValorXhora = XMLRecurso.getElementsByTagName('valorXhora')[0].firstChild.data.strip()
+                #Convertir a numero
+                
+                print(Recursoid)
+                print(RecursoNombre)
+                print(RecursoAbreviatura)
+                print(RecursoMetrica)
+                print(RecursoTipo)
+                print(RecursoValorXhora)
+                
+                
         except Exception as e:
             self.msg('Error en obtenerlistaRecursos()',e)

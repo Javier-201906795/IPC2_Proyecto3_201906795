@@ -2,7 +2,7 @@
 <archivoConfiguraciones>
 <listaRecursos>
     <recurso id="idRecurso">
-        <nombre> nombreRecurso </nombre>
+        <nombre> nombre Recurso </nombre>
         <abreviatura> abreviaturaRecurso </abreviatura>
         <metrica> NombreMetrica </metrica>
         <tipo> $tipoRecurso </tipo>
