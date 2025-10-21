@@ -10,8 +10,9 @@ class SistemaCentral():
         self.SisLeerArhvXML.asignarruta(ruta_archivo)
         #Leer Archivo XML
         self.SisLeerArhvXML.leerArchivo()    
-        print(self.SisLeerArhvXML.contenidoXML)
+        # print(self.SisLeerArhvXML.contenidoXML)
         #Segmentar Archivo XML
+        self.SisLeerArhvXML.SegmentarArchivo()
 
 
 
