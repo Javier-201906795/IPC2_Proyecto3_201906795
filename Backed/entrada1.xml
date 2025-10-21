@@ -19,8 +19,8 @@
 <listaCategorias>
     <categoria id="idCateoria">
         <nombre> nombreCategoria </nombre>
-        <descripcion> descripcionCategoria </descripcion>
-        <cargaTrabajo> descripcionCargaTrabajo </cargaTrabajo>
+        <descripcion> descripcion sobre la Categoria </descripcion>
+        <cargaTrabajo> descripcion Carga Trabajo </cargaTrabajo>
         <listaConfiguraciones>
             <configuracion id="idConfiguracion">
                 <nombre> nombreConfiguracion </nombre>

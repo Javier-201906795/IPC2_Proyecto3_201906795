@@ -56,7 +56,47 @@ class SistemaLeerArchivosXML():
             #Obtener cagorias
             XMLVariasCategorias = XMLListaCategorias.getElementsByTagName('categoria')
             for XMLCategoria in XMLVariasCategorias:
-                print(XMLCategoria.toxml())
+                # print(XMLCategoria.toxml())
+                Catid= XMLCategoria.getAttribute('id').strip()
+                Catnombre= XMLCategoria.getElementsByTagName('nombre')[0].firstChild.data.lstrip().lower()
+                Catdescrpcion= XMLCategoria.getElementsByTagName('descripcion')[0].firstChild.data.lstrip().lower()
+                Catcargatrabajo = XMLCategoria.getElementsByTagName('cargaTrabajo')[0].firstChild.data.lstrip().lower()
+                #Clase
+                claseCategoria = CCategoria(Catid,Catnombre, Catdescrpcion,Catcargatrabajo)
+                
+                #Lista Configuraciones
+                ListaConfiguracion =claseCategoria.listaconfiguracion
+                XMLListaConfiguraciones = XMLListaCategorias.getElementsByTagName('listaConfiguraciones')[0]
+                XMLVariasConfiguraciones = XMLListaConfiguraciones.getElementsByTagName('configuracion')
+                for XMLConfiguracion in XMLVariasConfiguraciones:
+                    # print(XMLConfiguracion.toxml())
+                    Confid = XMLConfiguracion.getAttribute('id').strip()
+                    Confnombre = XMLConfiguracion.getElementsByTagName('nombre')[0].firstChild.data.lstrip().lower()
+                    Confdescripcion = XMLConfiguracion.getElementsByTagName('descripcion')[0].firstChild.data.lstrip().lower()
+                    claseConfiguracion = CConfiguracion(Confid,Confnombre,Confdescripcion)
+                    # claseConfiguracion.desplegar()
+                    
+                    #Lista Recuros
+                    LisaRecuros = claseConfiguracion.listarecursoconfiguracion
+                    XMLListaRecursos = XMLListaConfiguraciones.getElementsByTagName('recursosConfiguracion')[0]
+                    XMLVariosRecursos = XMLListaRecursos.getElementsByTagName('recurso')
+                    for XMLRecurso in XMLVariosRecursos:
+                        print(XMLRecurso.toxml())
+                        Recursoid = XMLRecurso.getAttribute('id').strip()
+                        Recursocantidad = XMLRecurso.firstChild.data
+                        claseRecurso = CRecursoConfiguracion(Recursoid, Recursocantidad)
+                        claseRecurso.desplegar()
+                        #Almacenar
+                        LisaRecuros.append(claseRecurso)
+
+
+
+                    #Almacenar
+                    ListaConfiguracion.append(claseConfiguracion)
+                    
+
+
+                claseCategoria.desplegar()    
 
         except Exception as e:
             self.msg('Error en obtenerlistaCategorias()',e)

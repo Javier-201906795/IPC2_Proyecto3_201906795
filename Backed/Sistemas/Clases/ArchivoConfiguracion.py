@@ -24,11 +24,13 @@ class CCategoria():
         self.listaconfiguracion = []
     
     def desplegar(self):
+        print('[ CATEGORIA ]***************************************************************************************')
         print(f"ID: {self.id}, Nombre: {self.nombre}, Descripcion: {self.descipcion}, Carga de Trabajo: {self.cargatrabajo}")
-        print('-- [Configuraciones] --')
+        print('-- [Lista Configuraciones]')
         for configuracion in self.listaconfiguracion:
             configuracion.desplegar()
-        print('-- [Fin Configuraciones] --')
+        print('-- [Fin Lista Configuraciones]')
+        print('[Fin CATEGORIA ]****************************************************************************************************')
 
 
 #[B2]#######################################################
@@ -41,11 +43,13 @@ class CConfiguracion():
         self.listarecursoconfiguracion = []
 
     def desplegar(self):
-        print(f"ID: {self.id}, Nombre: {self.nombre}, Descripcion: {self.descripcion}")
-        print('-- [Recursos] --')
+        print('   ++ [ CONFIGURACION ]')
+        print(f"     ID: {self.id}, Nombre: {self.nombre}, Descripcion: {self.descripcion}")
+        print('        ** [Lista Recursos]')
         for recurso in self.listarecursoconfiguracion:
             recurso.desplegar()
-        print('-- [Fin Recursos] --')
+        print('        ** [Fin Lista Recursos]')
+        print('   ++ [FIN CONFIGURACION ]')
 
 #[B3]#######################################################
 
@@ -55,7 +59,7 @@ class CRecursoConfiguracion():
         self.cantidadrecurso = cantidadrecurso
     
     def desplegar(self):
-        print(f"ID: {self.id}, Cantidad Recurso: {self.cantidadrecurso}")
+        print(f"             ID: {self.id}, Cantidad Recurso: {self.cantidadrecurso}")
 
 
 #[C1]#######################################################
