@@ -30,7 +30,7 @@ class CCategoria():
         for configuracion in self.listaconfiguracion:
             configuracion.desplegar()
         print('-- [Fin Lista Configuraciones]')
-        print('[Fin CATEGORIA ]****************************************************************************************************')
+        print('[Fin CATEGORIA ]*************************************************************************************')
 
 
 #[B2]#######################################################

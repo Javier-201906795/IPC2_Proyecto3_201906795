@@ -116,10 +116,10 @@ class SistemaLeerArchivosXML():
                 RecursoAbreviatura = XMLRecurso.getElementsByTagName('abreviatura')[0].firstChild.data.strip().lower()
                 RecursoMetrica = XMLRecurso.getElementsByTagName('metrica')[0].firstChild.data.lstrip()
                 RecursoValorXhora = XMLRecurso.getElementsByTagName('valorXhora')[0].firstChild.data.strip()
-                RecursoTipo = XMLRecurso.getElementsByTagName('tipo')[0].firstChild.data
+                RecursoTipo = XMLRecurso.getElementsByTagName('tipo')[0].firstChild.data.strip()
                 #Quitar espacios en blanco
                 try:
-                    RecursoTipo = RecursoTipo.split()[0].strip().lower()
+                    RecursoTipo = RecursoTipo.split()[0].lower()
                 except Exception as e:
                     RecursoTipo = None
                     self.msg(f'Error en ver que tipo es {RecursoTipo}',e)
