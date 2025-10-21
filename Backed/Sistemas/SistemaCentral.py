@@ -11,6 +11,7 @@ class SistemaCentral():
         #Leer Archivo XML
         self.SisLeerArhvXML.leerArchivo()    
         print(self.SisLeerArhvXML.contenidoXML)
+        #Segmentar Archivo XML
 
 
 
