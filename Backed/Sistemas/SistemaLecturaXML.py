@@ -6,6 +6,7 @@ from Clases.ArchivoConfiguracion import *
 class SistemaLeerArchivosXML():
     def __init__(self):
         self.ruta = None
+        self.contenidoXML = None
     
     def msg(self, mensaje, extra):
         print(f'[SistemaLeerArchivosXML]>> {mensaje}\n')
@@ -22,5 +23,8 @@ class SistemaLeerArchivosXML():
         else:
             try:
                 self.msg('Leyendo archivo XML', None)
+                with open(self.ruta, 'r') as archivo:
+                    self.contenidoXML = archivo.read()
+                return self.contenidoXML
             except Exception as e:
                 self.msg('Error: en leerArchivo()',e)
