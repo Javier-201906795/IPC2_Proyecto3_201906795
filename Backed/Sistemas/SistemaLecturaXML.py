@@ -3,7 +3,7 @@ from xml.dom.minidom import Document, parse, parseString
 from Clases.ArchivoConfiguracion import *
 
 
-class SistemaLeerArchivosXML:
+class SistemaLeerArchivosXML():
     def __init__(self):
         self.ruta = None
     
@@ -21,6 +21,6 @@ class SistemaLeerArchivosXML:
             self.msg('No hay ruta cargada',None)
         else:
             try:
-                pass
+                self.msg('Leyendo archivo XML', None)
             except Exception as e:
                 self.msg('Error: en leerArchivo()',e)
