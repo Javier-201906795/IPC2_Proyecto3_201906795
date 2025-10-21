@@ -94,4 +94,6 @@ class CInstancias():
 ########################################################
 class CArchivoConfiguracion():
     def __init__(self):
-        pass
+        self.listaRecursos = []
+        self.listaCategorias = []
+        self.listaClientes = []
