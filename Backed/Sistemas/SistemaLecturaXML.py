@@ -35,6 +35,16 @@ class SistemaLeerArchivosXML():
             self.domXML = parseString(self.contenidoXML)
             # print(self.domXML.toxml())
             self.msg('Segmentar Archivo')
-            
+            #Obtener lista recursos
+            self.obtenerlistaRecursos()
+
+        
+
         except Exception as e:
             self.msg('Error en SegmentarArchivo()',e)
+    
+    def obtenerlistaRecursos(self):
+        try:
+            self.msg('Obtener Lista Recursos')
+        except Exception as e:
+            self.msg('Error en obtenerlistaRecursos()',e)
