@@ -8,6 +8,13 @@ class SistemaLeerArchivosXML():
         self.ruta = None
         self.contenidoXML = None
         self.domXML = None
+        self.XMLArchivoconfiguracion = None
+
+        self.CArchivoConfiguracion = CArchivoConfiguracion()
+        self.ListaRecuros = self.CArchivoConfiguracion.listaRecursos
+        self.ListaCategorias = self.CArchivoConfiguracion.listaCategorias
+        self.ListaClientes = self.CArchivoConfiguracion.listaClientes
+        
     
     def msg(self, mensaje, extra=None):
         print(f'[SistemaLeerArchivosXML]>> {mensaje}')
@@ -35,8 +42,13 @@ class SistemaLeerArchivosXML():
             self.domXML = parseString(self.contenidoXML)
             # print(self.domXML.toxml())
             self.msg('Segmentar Archivo')
-            #Obtener lista recursos
-            self.obtenerlistaRecursos()
+            Dom = self.domXML
+            if Dom != None:
+                #Obtenre ArchivoConfiguracion Solo el primero
+                self.XMLArchivoconfiguracion = Dom.getElementsByTagName('archivoConfiguraciones')[0]
+                # print(self.XMLArchivoconfiguracion.toxml())
+                #Obtener lista recursos
+                self.obtenerlistaRecursos()
 
         
 
@@ -46,5 +58,8 @@ class SistemaLeerArchivosXML():
     def obtenerlistaRecursos(self):
         try:
             self.msg('Obtener Lista Recursos')
+            XMLlistaRecursos = self.XMLArchivoconfiguracion.getElementsByTagName('listaRecursos')
+            for XMLrecurso in XMLlistaRecursos:
+                print(XMLrecurso.toxml())
         except Exception as e:
             self.msg('Error en obtenerlistaRecursos()',e)
