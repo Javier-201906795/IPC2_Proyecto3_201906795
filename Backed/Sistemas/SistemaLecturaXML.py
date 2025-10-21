@@ -11,7 +11,7 @@ class SistemaLeerArchivosXML():
         self.XMLArchivoconfiguracion = None
 
         self.CArchivoConfiguracion = CArchivoConfiguracion()
-        self.ListaRecuros = self.CArchivoConfiguracion.listaRecursos
+        self.ListaRecursos = self.CArchivoConfiguracion.listaRecursos
         self.ListaCategorias = self.CArchivoConfiguracion.listaCategorias
         self.ListaClientes = self.CArchivoConfiguracion.listaClientes
         
@@ -63,7 +63,7 @@ class SistemaLeerArchivosXML():
             #Obtener Recursos
             XMLVariosRecursos = XMLlistaRecursos.getElementsByTagName('recurso')
             for XMLRecurso in XMLVariosRecursos:
-                print(XMLRecurso.toxml())
+                # print(XMLRecurso.toxml())
                 Recursoid = XMLRecurso.getAttribute('id')
                 RecursoNombre = XMLRecurso.getElementsByTagName('nombre')[0].firstChild.data.lstrip()
                 RecursoAbreviatura = XMLRecurso.getElementsByTagName('abreviatura')[0].firstChild.data.strip()
@@ -71,13 +71,17 @@ class SistemaLeerArchivosXML():
                 RecursoTipo = XMLRecurso.getElementsByTagName('tipo')[0].firstChild.data.lstrip()
                 RecursoValorXhora = XMLRecurso.getElementsByTagName('valorXhora')[0].firstChild.data.strip()
                 #Convertir a numero
+                try:
+                    RecursoValorXhora = float(RecursoValorXhora)
+                except Exception as e:
+                    self.msg(f'Error en convertir a numero. {RecursoValorXhora}',e)
+                #Crear Clase
+                claseRecurso = CRecurso(Recursoid,RecursoNombre,RecursoAbreviatura,RecursoMetrica,RecursoTipo,RecursoValorXhora)
+                #Imprimir
+                claseRecurso.desplegar()
+                #Almacenar
+                self.ListaRecursos.append(claseRecurso)
                 
-                print(Recursoid)
-                print(RecursoNombre)
-                print(RecursoAbreviatura)
-                print(RecursoMetrica)
-                print(RecursoTipo)
-                print(RecursoValorXhora)
                 
                 
         except Exception as e:
