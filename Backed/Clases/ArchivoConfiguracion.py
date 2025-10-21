@@ -16,7 +16,7 @@ class CRecurso():
 #[B1]#######################################################
 
 class CCategoria():
-    def __init__(self, id, nombre, descripcion, cargatrabajo, listaconfiguracion):
+    def __init__(self, id, nombre, descripcion, cargatrabajo):
         self.id = id
         self.nombre = nombre
         self.descipcion = descripcion
@@ -25,23 +25,27 @@ class CCategoria():
     
     def desplegar(self):
         print(f"ID: {self.id}, Nombre: {self.nombre}, Descripcion: {self.descipcion}, Carga de Trabajo: {self.cargatrabajo}")
+        print('-- [Configuraciones] --')
         for configuracion in self.listaconfiguracion:
             configuracion.desplegar()
+        print('-- [Fin Configuraciones] --')
 
 
 #[B2]#######################################################
 
 class CConfiguracion():
-    def __init__(self,id, nombre, descipcion, listarecursoconfiguracion):
+    def __init__(self,id, nombre, descipcion):
         self.id = id
         self.nombre = nombre
         self.descripcion = descipcion
-        self.listarecursoconfiguracion = listarecursoconfiguracion
+        self.listarecursoconfiguracion = []
 
     def desplegar(self):
         print(f"ID: {self.id}, Nombre: {self.nombre}, Descripcion: {self.descripcion}")
+        print('-- [Recursos] --')
         for recurso in self.listarecursoconfiguracion:
             recurso.desplegar()
+        print('-- [Fin Recursos] --')
 
 #[B3]#######################################################
 
