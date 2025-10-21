@@ -41,15 +41,29 @@ class SistemaLeerArchivosXML():
                 #Obtener lista recursos
                 self.obtenerlistaRecursos()
                 #Obtener Categoria
-                
+                self.obtenerlistaCategorias()
 
         
 
         except Exception as e:
             self.msg('Error en SegmentarArchivo()',e)
     
+    def obtenerlistaCategorias(self):
+        try:
+            print('\n')
+            self.msg('Obtener Lista Categorias')
+            XMLListaCategorias = self.XMLArchivoconfiguracion.getElementsByTagName('listaCategorias')[0]
+            #Obtener cagorias
+            XMLVariasCategorias = XMLListaCategorias.getElementsByTagName('categoria')
+            for XMLCategoria in XMLVariasCategorias:
+                print(XMLCategoria.toxml())
+
+        except Exception as e:
+            self.msg('Error en obtenerlistaCategorias()',e)
+    
     def obtenerlistaRecursos(self):
         try:
+            print('\n')
             self.msg('Obtener Lista Recursos')
             XMLlistaRecursos = self.XMLArchivoconfiguracion.getElementsByTagName('listaRecursos')[0]
             # print(XMLlistaRecursos.toxml())
