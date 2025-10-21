@@ -6,13 +6,13 @@
         <abreviatura> abreviaturaRecurso </abreviatura>
         <metrica> NombreMetrica </metrica>
         <tipo> $tipoRecurso </tipo>
-        <valorXhora>15.5b</valorXhora>
+        <valorXhora>15.5</valorXhora>
     </recurso>
     <recurso id="idmemoria">
         <nombre> Memoria </nombre>
         <abreviatura> mem </abreviatura>
         <metrica> Gb </metrica>
-        <tipo> Hardware </tipo>
+        <tipo>Hardware d </tipo>
         <valorXhora>2</valorXhora>
     </recurso>
 </listaRecursos>

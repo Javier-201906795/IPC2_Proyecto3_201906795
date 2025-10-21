@@ -64,12 +64,19 @@ class SistemaLeerArchivosXML():
             XMLVariosRecursos = XMLlistaRecursos.getElementsByTagName('recurso')
             for XMLRecurso in XMLVariosRecursos:
                 # print(XMLRecurso.toxml())
-                Recursoid = XMLRecurso.getAttribute('id')
+                Recursoid = XMLRecurso.getAttribute('id').strip()
                 RecursoNombre = XMLRecurso.getElementsByTagName('nombre')[0].firstChild.data.lstrip().lower()
                 RecursoAbreviatura = XMLRecurso.getElementsByTagName('abreviatura')[0].firstChild.data.strip().lower()
                 RecursoMetrica = XMLRecurso.getElementsByTagName('metrica')[0].firstChild.data.lstrip()
-                RecursoTipo = XMLRecurso.getElementsByTagName('tipo')[0].firstChild.data.lstrip().lower()
                 RecursoValorXhora = XMLRecurso.getElementsByTagName('valorXhora')[0].firstChild.data.strip()
+                RecursoTipo = XMLRecurso.getElementsByTagName('tipo')[0].firstChild.data
+                #Quitar espacios en blanco
+                try:
+                    RecursoTipo = RecursoTipo.split()[0].strip().lower()
+                except Exception as e:
+                    RecursoTipo = None
+                    self.msg(f'Error en ver que tipo es {RecursoTipo}',e)
+                
                 #Convertir a numero
                 try:
                     RecursoValorXhora = float(RecursoValorXhora)
