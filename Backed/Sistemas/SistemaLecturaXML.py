@@ -25,6 +25,5 @@ class SistemaLeerArchivosXML():
                 self.msg('Leyendo archivo XML', None)
                 with open(self.ruta, 'r') as archivo:
                     self.contenidoXML = archivo.read()
-                return self.contenidoXML
             except Exception as e:
                 self.msg('Error: en leerArchivo()',e)
