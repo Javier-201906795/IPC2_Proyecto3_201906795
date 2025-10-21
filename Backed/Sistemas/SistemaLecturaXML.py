@@ -25,16 +25,7 @@ class SistemaLeerArchivosXML():
         self.ruta = ruta
         self.msg('Ruta Asignada', ruta)
 
-    def leerArchivo(self):
-        if self.ruta == None:
-            self.msg('No hay ruta cargada')
-        else:
-            try:
-                self.msg('Leyendo archivo XML')
-                with open(self.ruta, 'r') as archivo:
-                    self.contenidoXML = archivo.read()
-            except Exception as e:
-                self.msg('Error: en leerArchivo()',e)
+    
     
     def SegmentarArchivo(self):
         try:
@@ -49,6 +40,8 @@ class SistemaLeerArchivosXML():
                 # print(self.XMLArchivoconfiguracion.toxml())
                 #Obtener lista recursos
                 self.obtenerlistaRecursos()
+                #Obtener Categoria
+                
 
         
 
@@ -94,3 +87,14 @@ class SistemaLeerArchivosXML():
                 
         except Exception as e:
             self.msg('Error en obtenerlistaRecursos()',e)
+
+    def leerArchivo(self):
+        if self.ruta == None:
+            self.msg('No hay ruta cargada')
+        else:
+            try:
+                self.msg('Leyendo archivo XML')
+                with open(self.ruta, 'r') as archivo:
+                    self.contenidoXML = archivo.read()
+            except Exception as e:
+                self.msg('Error: en leerArchivo()',e)
