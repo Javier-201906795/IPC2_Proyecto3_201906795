@@ -6,7 +6,7 @@
         <abreviatura> abreviaturaRecurso </abreviatura>
         <metrica> NombreMetrica </metrica>
         <tipo> $tipoRecurso </tipo>
-        <valorXhora>15.5</valorXhora>
+        <valorXhora>15.5b</valorXhora>
     </recurso>
     <recurso id="idmemoria">
         <nombre> Memoria </nombre>

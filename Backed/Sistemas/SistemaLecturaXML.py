@@ -65,15 +65,16 @@ class SistemaLeerArchivosXML():
             for XMLRecurso in XMLVariosRecursos:
                 # print(XMLRecurso.toxml())
                 Recursoid = XMLRecurso.getAttribute('id')
-                RecursoNombre = XMLRecurso.getElementsByTagName('nombre')[0].firstChild.data.lstrip()
-                RecursoAbreviatura = XMLRecurso.getElementsByTagName('abreviatura')[0].firstChild.data.strip()
+                RecursoNombre = XMLRecurso.getElementsByTagName('nombre')[0].firstChild.data.lstrip().lower()
+                RecursoAbreviatura = XMLRecurso.getElementsByTagName('abreviatura')[0].firstChild.data.strip().lower()
                 RecursoMetrica = XMLRecurso.getElementsByTagName('metrica')[0].firstChild.data.lstrip()
-                RecursoTipo = XMLRecurso.getElementsByTagName('tipo')[0].firstChild.data.lstrip()
+                RecursoTipo = XMLRecurso.getElementsByTagName('tipo')[0].firstChild.data.lstrip().lower()
                 RecursoValorXhora = XMLRecurso.getElementsByTagName('valorXhora')[0].firstChild.data.strip()
                 #Convertir a numero
                 try:
                     RecursoValorXhora = float(RecursoValorXhora)
                 except Exception as e:
+                    RecursoValorXhora = 0
                     self.msg(f'Error en convertir a numero. {RecursoValorXhora}',e)
                 #Crear Clase
                 claseRecurso = CRecurso(Recursoid,RecursoNombre,RecursoAbreviatura,RecursoMetrica,RecursoTipo,RecursoValorXhora)
