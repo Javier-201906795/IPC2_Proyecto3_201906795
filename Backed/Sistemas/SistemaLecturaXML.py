@@ -40,8 +40,9 @@ class SistemaLeerArchivosXML():
                 # print(self.XMLArchivoconfiguracion.toxml())
                 #Obtener lista recursos
                 self.obtenerlistaRecursos()
-                #Obtener Categoria
+                #Obtener lista Categoria
                 self.obtenerlistaCategorias()
+                #Obtener lista Clientes
 
         
 
@@ -81,11 +82,11 @@ class SistemaLeerArchivosXML():
                     XMLListaRecursos = XMLListaConfiguraciones.getElementsByTagName('recursosConfiguracion')[0]
                     XMLVariosRecursos = XMLListaRecursos.getElementsByTagName('recurso')
                     for XMLRecurso in XMLVariosRecursos:
-                        print(XMLRecurso.toxml())
+                        # print(XMLRecurso.toxml())
                         Recursoid = XMLRecurso.getAttribute('id').strip()
                         Recursocantidad = XMLRecurso.firstChild.data
                         claseRecurso = CRecursoConfiguracion(Recursoid, Recursocantidad)
-                        claseRecurso.desplegar()
+                        # claseRecurso.desplegar()
                         #Almacenar
                         LisaRecuros.append(claseRecurso)
 
@@ -95,8 +96,9 @@ class SistemaLeerArchivosXML():
                     ListaConfiguracion.append(claseConfiguracion)
                     
 
-
-                claseCategoria.desplegar()    
+                #Imprimir Categorias
+                claseCategoria.desplegar()  
+                print('\n')  
 
         except Exception as e:
             self.msg('Error en obtenerlistaCategorias()',e)

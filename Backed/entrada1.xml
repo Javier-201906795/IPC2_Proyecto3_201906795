@@ -31,6 +31,20 @@
             </configuracion>
         </listaConfiguraciones>
     </categoria>
+    <categoria id="CATEGORIA1">
+        <nombre> nnombre1 </nombre>
+        <descripcion> descripcion sobre la Categoria </descripcion>
+        <cargaTrabajo> descripcion Carga Trabajo </cargaTrabajo>
+        <listaConfiguraciones>
+            <configuracion id="iconfigmemoria">
+                <nombre> nombreConfiguracion </nombre>
+                <descripcion> descripcionConfiguracion </descripcion>
+                <recursosConfiguracion>
+                    <recurso id="idRecurso"> cantidadRecurso </recurso>
+                </recursosConfiguracion>
+            </configuracion>
+        </listaConfiguraciones>
+    </categoria>
 </listaCategorias>
 <listaClientes>
     <cliente nit="$nitCliente">
