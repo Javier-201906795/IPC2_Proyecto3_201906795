@@ -26,7 +26,8 @@ print('------[Sistema Central] -------')
 SisCntr = SistemaCentral()
 
 #Cargar Ruta
-ruta_actual = os.getcwd()
+# ruta_actual = os.getcwd()
+ruta_actual = os.path.dirname(os.path.abspath(__file__))
 ruta_archivo = os.path.abspath(os.path.join(ruta_actual, '..', 'entrada1.xml'))
 #Leer Archivo
 SisCntr.LeerArchivo(ruta_archivo)
