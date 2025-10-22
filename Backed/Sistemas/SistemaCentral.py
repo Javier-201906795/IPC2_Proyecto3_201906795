@@ -9,6 +9,7 @@ class SistemaCentral():
         self.ArchivoConfiguracion = None
 
         self.SisVal = SistemaValidaciones()
+        self.mensajeErroresXML = None
     
     def LeerArchivo(self,ruta):
         self.SisLeerArhvXML.asignarruta(ruta_archivo)
@@ -25,6 +26,11 @@ class SistemaCentral():
         self.SisVal.asignarArchivoConfiguracion(self.ArchivoConfiguracion)
         #Validar
         self.SisVal.ValidarArchivoConfiguaracion()
+        #Guardar
+        self.ArchivoConfiguracion = self.SisVal.obtenerArchivoConfiguracion()
+        #Mensaje errores
+        self.mensajeErroresXML = self.SisVal.obtenermensajeerrores()
+        print('msg Errores: ', self.mensajeErroresXML)
 
 
 

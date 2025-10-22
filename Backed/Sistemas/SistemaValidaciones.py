@@ -12,29 +12,39 @@ class SistemaValidaciones():
         self.ListaClientes = None
     
     
+    def obtenerArchivoConfiguracion(self):
+        return self.ArchivoConfiguracion
+    
+    def obtenermensajeerrores(self):
+        return self.msjErrores
 
     def ValidarArchivoConfiguaracion(self):
-        self.msg('Validando Archivo de Configuracion')
-        if self.ArchivoConfiguracion != None:
-            ###################################################
-            #Recorrer Lista Recursos
-            self.msg('Validar Lista Recursos')
-            for Recurso in self.ListaRecursos:
-                #Validar Recurso
-                self.ValidacionRecurso(Recurso)
-            #Imprimir Errores
-            if self.msjErrores != '':
-                print('Errores Recurso: ',self.msjErrores)
-            ###################################################
-            #Recorrer Lista Clientes
-            self.msg('Validar Lista Clientes')
-            for Cliente in self.ListaClientes:
-                #Validar Cliente
-                self.ValidacionCliente(Cliente)
-            #Imprimir Errores
-            if self.msjErrores != '':
-                print('Errores Recurso y Clientes: ',self.msjErrores)
-            ###################################################
+        try:
+            self.msg('Validando Archivo de Configuracion')
+            if self.ArchivoConfiguracion != None:
+                ###################################################
+                #Recorrer Lista Recursos
+                self.msg('Validar Lista Recursos')
+                for Recurso in self.ListaRecursos:
+                    #Validar Recurso
+                    self.ValidacionRecurso(Recurso)
+                #Imprimir Errores
+                if self.msjErrores != '':
+                    print('Errores Recurso: ',self.msjErrores)
+                ###################################################
+                #Recorrer Lista Clientes
+                self.msg('Validar Lista Clientes')
+                for Cliente in self.ListaClientes:
+                    #Validar Cliente
+                    self.ValidacionCliente(Cliente)
+                #Imprimir Errores
+                if self.msjErrores != '':
+                    print('Errores Recurso y Clientes: ',self.msjErrores)
+                ###################################################
+                print()
+        except Exception as e:
+            self.msg('Error en ValidarArchivoConfiguaracion()',e)
+
     def ValidacionCliente(self, cliente):
         try:
             ##################
