@@ -17,15 +17,27 @@ class SistemaValidaciones():
         self.msg('Validando Archivo de Configuracion')
         if self.ArchivoConfiguracion != None:
             #Recorrer Lista Recursos
+            self.msg('Validar Lista Recursos')
             for Recurso in self.ListaRecursos:
                 #Validar Recurso
                 self.ValidacionRecurso(Recurso)
             
             #Recorrer Lista Clientes
+            self.msg('Validar Lista Clientes')
             for Cliente in self.ListaClientes:
-                Cliente.desplegar()
+                #Validar Cliente
+                self.ValidacionCliente(Cliente)
             
-    
+    def ValidacionCliente(self, cliente):
+        try:
+            #Datos A validar
+            nit = cliente.nit
+            print(nit)
+
+        except Exception as e:
+            self.mgs('Erro en ValidacioCliente()',e)
+
+
     def ValidacionRecurso(self,recurso):
         try:
             recurso.desplegar()
