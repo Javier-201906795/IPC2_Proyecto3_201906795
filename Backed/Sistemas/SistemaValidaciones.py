@@ -18,26 +18,43 @@ class SistemaValidaciones():
         if self.ArchivoConfiguracion != None:
             #Recorrer Lista Recursos
             for Recurso in self.ListaRecursos:
+                #Validar Recurso
                 self.ValidacionRecurso(Recurso)
+            
+            #Recorrer Lista Clientes
+            for Cliente in self.ListaClientes:
+                Cliente.desplegar()
             
     
     def ValidacionRecurso(self,recurso):
         try:
-            self.msg('Validando Recurso')
             recurso.desplegar()
             #Evaluar tipo
-            opcionevaluar = str(recurso.tipo).lower()
+            tipo = self.validarOpciones(recurso.tipo,['hardware','software'])
+            recurso.tipo = tipo
+            print(recurso.tipo)
+            
+        except Exception as e:
+            self.msg('Error en ValidacionRecurso()',e)
+
+
+
+    def validarOpciones(self, opcionevaluar, opcionesvalidas):
+        try:
+            #Convertir variable a minusculuas y quitar espacios
+            opcionevaluar = str(opcionevaluar).lstrip().lower()
             #Lista Opciones Validas
-            opcionesvalalidas = ['hardware','software']
+            opcionesvalalidas = opcionesvalidas
             #Evaluar
             if opcionevaluar in opcionesvalalidas:
                 self.msg(f'recurso tipo: opcion valida -> {opcionevaluar}')
             else:
                 self.msg(f'recurso tipo: opcion Invalida -> {opcionevaluar}')
+            #Retornoar
+
+            return opcionevaluar
         except Exception as e:
-            self.msg('Error en ValidacionRecurso()',e)
-
-
+            self.msg('Error en validarOpciones()',e)
 
 
 
