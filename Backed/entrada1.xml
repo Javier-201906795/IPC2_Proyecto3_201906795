@@ -82,9 +82,9 @@
             <instancia id="222222">
                 <idConfiguracion> config2 </idConfiguracion>
                 <nombre> Backend3 </nombre>
-                <fechaInicio> Guatemala, 02/02/2025 </fechaInicio>
+                <fechaInicio> Guatemala, 2/02/2025 </fechaInicio>
                 <estado> Vigente </estado>
-                <fechaFinal> en la ciudad de guatemala 02/12/2025 se brindara el servicio</fechaFinal>
+                <fechaFinal> en la ciudad de guatemala 2/12/2025 se brindara el servicio</fechaFinal>
             </instancia>
         </listaInstancias>
     </cliente>

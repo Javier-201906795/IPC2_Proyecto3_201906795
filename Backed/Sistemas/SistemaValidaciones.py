@@ -1,5 +1,5 @@
 
-
+from datetime import date, datetime
 
 
 
@@ -68,11 +68,41 @@ class SistemaValidaciones():
                     fechafinal = self.validarfecha(fechafinal)
                     print('>>Estado: ',estado,' Fecha Final: ', fechafinal) 
                     print()
+            
+            print('Erorres Acumulados: ', self.msjErrores)
         except Exception as e:
             self.msg('Error en validainstancias()',e)
     
     def validarfecha(self, txtfecha):
         try:
+            temptxtfecha = txtfecha
+            txtfecha = str(txtfecha).strip().lower()
+            #Segmentar por palabra
+            frase = txtfecha.split()
+            banderaprimero = False
+            for palabra in frase:
+                if '/' in palabra and banderaprimero == False:
+                    txtfecha = palabra
+                    banderaprimero = True
+            #Validar si hay fecha
+            if banderaprimero == False:
+                #No hay fecha
+                mensaje=f'fecha Invalida! no se encontro la fecha-> {temptxtfecha}'
+                self.msg(mensaje)
+                self.msjErrores += mensaje+'\n'
+                txtfecha = date.today().strftime("%d/%m/%Y")
+            else:
+                #Si hay fecha
+                try:
+                    #pasar a formato
+                    txtfecha = datetime.strptime(txtfecha, "%d/%m/%Y")
+                    txtfecha = str(txtfecha.strftime("%d/%m/%Y"))
+                except:
+                    mensaje=f'fecha Invalida! el formato no esta correcto-> {temptxtfecha}'
+                    self.msg(mensaje)
+                    self.msjErrores += mensaje+'\n'
+                    txtfecha = date.today().strftime("%d/%m/%Y")
+
             return txtfecha
         except Exception as e:
             self.msg('Error en validarfecha()',e)
