@@ -39,9 +39,19 @@ class SistemaValidaciones():
         try:
             ##################
             #VALIDACION NIT
-            ##Datos A validar
             nit = cliente.nit
-            print(nit)
+            cliente.nit = self.validarnit(nit)
+            print('Nit: ',cliente.nit)
+            
+            ##################
+            #VALIDACION LISTA INSTANCIAS
+
+        except Exception as e:
+            self.mgs('Erro en ValidacioCliente()',e)
+
+    def validarnit(self, nit):
+        try:
+            nit = str(nit).strip()
             ##obtener ultimo digito y guio
             ultimodato = nit[-2:]
             ##Validar guion
@@ -52,17 +62,21 @@ class SistemaValidaciones():
                 opcionesvalidas = ['0','1','2','3','4','5','6','7','8','9','K','k']
                 if digitovalidacion in opcionesvalidas:
                     self.msg(f'nit valido -> {nit}')
+                    return nit
                 else:
                     mensaje=f'nit Invalido! ultimo digitio invalido -> {nit}'
                     self.msg(mensaje)
                     self.msjErrores += mensaje+'\n'
+                    return "#E1#"+nit
             else:
                 mensaje = f'nit Invalido! Falta Guion en su lugar -> {nit}'
                 self.msg(mensaje)
                 self.msjErrores += mensaje+'\n'
-
+                return "#E2#"+nit
         except Exception as e:
-            self.mgs('Erro en ValidacioCliente()',e)
+            mensaje = f'Error nit Invalido!  -> {nit}'
+            self.msg(mensaje)
+            self.msjErrores += mensaje+'\n'
 
 
     def ValidacionRecurso(self,recurso):
