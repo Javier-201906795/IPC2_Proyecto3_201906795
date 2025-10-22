@@ -2,11 +2,13 @@ import os
 
 from SistemaLecturaXML import SistemaLeerArchivosXML
 from SistemaValidaciones import SistemaValidaciones
+from SistemaSalidaXML import SistemaSalidaXML
 
 class SistemaCentral():
     def __init__(self):
         self.SisLeerArhvXML = SistemaLeerArchivosXML()
         self.ArchivoConfiguracion = None
+        self.SisSalidaXML = SistemaSalidaXML()
 
         self.SisVal = SistemaValidaciones()
         self.mensajeErroresXML = None
@@ -32,7 +34,11 @@ class SistemaCentral():
         self.mensajeErroresXML = self.SisVal.obtenermensajeerrores()
         print('msg Errores: ', self.mensajeErroresXML)
 
-
+    def GuaradarArchivoConfiguraciones(self, ruta):
+        #Asignar Ruta
+        self.SisSalidaXML.asignarruta(ruta)
+        #Procesar info
+        self.SisSalidaXML.GuardarArchivoConfiguraicones()
 
 
 
@@ -51,6 +57,10 @@ ruta_archivo = os.path.abspath(os.path.join(ruta_actual, '..', 'entrada1.xml'))
 SisCntr.LeerArchivo(ruta_archivo)
 #Validar Archivo
 SisCntr.ValidarArchivo()
+
+#Guardar Archivo Configuraciones XML
+ruta_archivo_config = os.path.abspath(os.path.join(ruta_actual, '..', 'ArchivoConfiguraciones.xml'))
+SisCntr.GuaradarArchivoConfiguraciones(ruta_archivo_config)
 
 
 ####################################################################
