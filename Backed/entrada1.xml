@@ -55,11 +55,11 @@
         <correoElectronico> eMailCliente </correoElectronico>
         <listaInstancias>
             <instancia id="idInstancia">
-            <idConfiguracion> idConfiguracion </idConfiguracion>
-            <nombre> nombreInstancia </nombre>
-            <fechaInicio> descripcionFecha </fechaInicio>
-            <estado> $estado </estado>
-            <fechaFinal> $descripcionFecha </fechaFinal>
+                <idConfiguracion> idConfiguracion </idConfiguracion>
+                <nombre> nombreInstancia </nombre>
+                <fechaInicio> descripcionFecha </fechaInicio>
+                <estado> $estado </estado>
+                <fechaFinal> $descripcionFecha </fechaFinal>
             </instancia>
         </listaInstancias>
     </cliente>

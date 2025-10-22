@@ -43,11 +43,55 @@ class SistemaLeerArchivosXML():
                 #Obtener lista Categoria
                 self.obtenerlistaCategorias()
                 #Obtener lista Clientes
-
+                self.obtenerlistaclientes()
         
 
         except Exception as e:
             self.msg('Error en SegmentarArchivo()',e)
+    
+    def obtenerlistaclientes(self):
+        try:
+            self.msg('Obtener lista clientes')
+            XMLListaClientes = self.XMLArchivoconfiguracion.getElementsByTagName('listaClientes')[0]
+            XMLVariosClientes = XMLListaClientes.getElementsByTagName('cliente')
+            for XMLCliente in XMLVariosClientes:
+                Cliid= XMLCliente.getAttribute('nit').strip()
+                Clinombre= XMLCliente.getElementsByTagName('nombre')[0].firstChild.data.lstrip().lower()
+                Cliusuario= XMLCliente.getElementsByTagName('usuario')[0].firstChild.data.lstrip().lower()
+                Cliclave= XMLCliente.getElementsByTagName('clave')[0].firstChild.data.lstrip().lower()
+                Clidireccion= XMLCliente.getElementsByTagName('direccion')[0].firstChild.data.lstrip().lower()
+                Clidireccion= XMLCliente.getElementsByTagName('direccion')[0].firstChild.data.lstrip().lower()
+                ClicorreoElectronico = XMLCliente.getElementsByTagName('correoElectronico')[0].firstChild.data.lstrip().lower()
+                #Clase
+                claseCliente = CCliente(Cliid,Clinombre,Cliusuario,Cliclave,Clidireccion,ClicorreoElectronico)
+                
+                #Lista Instancias
+                Listainstancias = claseCliente.listainstancias
+                XMLListainstancias = XMLCliente.getElementsByTagName('listaInstancias')[0]
+                XMLVariasInstancias = XMLListainstancias.getElementsByTagName('instancia')
+                for XMLInstancia in XMLVariasInstancias:
+                    Insid= XMLInstancia.getAttribute('id').strip()
+                    Insidconfiguracion = XMLInstancia.getElementsByTagName('idConfiguracion')[0].firstChild.data.lstrip().lower()
+                    Insnombre= XMLInstancia.getElementsByTagName('nombre')[0].firstChild.data.lstrip().lower()
+                    InsfechaInicio= XMLInstancia.getElementsByTagName('fechaInicio')[0].firstChild.data.lstrip().lower()
+                    Insestado = XMLInstancia.getElementsByTagName('estado')[0].firstChild.data.lstrip().lower()
+                    InsfechaFinal= XMLInstancia.getElementsByTagName('fechaFinal')[0].firstChild.data.lstrip().lower()
+                    #clase
+                    claseInstancia = CInstancias(Insid,Insidconfiguracion,Insnombre,InsfechaInicio,Insestado,InsfechaFinal)
+                    # claseInstancia.desplegar()
+                    #almacenar en lista
+                    Listainstancias.append(claseInstancia)
+                
+                claseCliente.desplegar()
+                #Guardar
+                self.ListaClientes.append(claseCliente)
+                
+
+
+
+
+        except Exception as e:
+            self.msg('Error en obtenerlistaclientes()',e)
     
     def obtenerlistaCategorias(self):
         try:
@@ -90,14 +134,14 @@ class SistemaLeerArchivosXML():
                         #Almacenar
                         LisaRecuros.append(claseRecurso)
 
-
-
                     #Almacenar
                     ListaConfiguracion.append(claseConfiguracion)
                     
 
                 #Imprimir Categorias
                 claseCategoria.desplegar()  
+                #Guardar en Lista
+                self.ListaCategorias.append(claseCategoria)
                 print('\n')  
 
         except Exception as e:
@@ -136,7 +180,7 @@ class SistemaLeerArchivosXML():
                 claseRecurso = CRecurso(Recursoid,RecursoNombre,RecursoAbreviatura,RecursoMetrica,RecursoTipo,RecursoValorXhora)
                 #Imprimir
                 claseRecurso.desplegar()
-                #Almacenar
+                #Guardar
                 self.ListaRecursos.append(claseRecurso)
                 
                 
