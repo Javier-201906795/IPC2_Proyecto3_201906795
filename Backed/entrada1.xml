@@ -71,6 +71,22 @@
                 <fechaFinal> en la ciudad de guatemala 01/12/2025 se brindara el servicio</fechaFinal>
             </instancia>
         </listaInstancias>
+        <listaInstancias>
+            <instancia id="111111">
+                <idConfiguracion> config2 </idConfiguracion>
+                <nombre> Backend2 </nombre>
+                <fechaInicio> 02/02/2025 </fechaInicio>
+                <estado> Vigente </estado>
+                <fechaFinal> 02/12/2025 </fechaFinal>
+            </instancia>
+            <instancia id="222222">
+                <idConfiguracion> config2 </idConfiguracion>
+                <nombre> Backend3 </nombre>
+                <fechaInicio> Guatemala, 02/02/2025 </fechaInicio>
+                <estado> Vigente </estado>
+                <fechaFinal> en la ciudad de guatemala 02/12/2025 se brindara el servicio</fechaFinal>
+            </instancia>
+        </listaInstancias>
     </cliente>
 </listaClientes>
 </archivoConfiguraciones>

@@ -41,6 +41,16 @@
             <fechaFinal> $descripcionFecha </fechaFinal>
             </instancia>
         </listaInstancias>
+        <listaInstancias>
+            <instancia id="idInstancia">
+            <idConfiguracion> idConfiguracion </idConfiguracion>
+            <nombre> nombreInstancia </nombre>
+            <fechaInicio> descripcionFecha </fechaInicio>
+            <estado> $estado </estado>
+            <fechaFinal> $descripcionFecha </fechaFinal>
+            </instancia>
+        </listaInstancias>
     </cliente>
 </listaClientes>
+
 </archivoConfiguraciones>
