@@ -85,6 +85,7 @@ class SistemaLeerArchivosXML():
                 claseCliente.desplegar()
                 #Guardar
                 self.ListaClientes.append(claseCliente)
+                print('\n')
                 
 
 
@@ -174,8 +175,8 @@ class SistemaLeerArchivosXML():
                 try:
                     RecursoValorXhora = float(RecursoValorXhora)
                 except Exception as e:
-                    RecursoValorXhora = 0
                     self.msg(f'Error en convertir a numero. {RecursoValorXhora}',e)
+                    RecursoValorXhora = 0
                 #Crear Clase
                 claseRecurso = CRecurso(Recursoid,RecursoNombre,RecursoAbreviatura,RecursoMetrica,RecursoTipo,RecursoValorXhora)
                 #Imprimir
