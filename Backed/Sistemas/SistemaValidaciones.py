@@ -52,27 +52,45 @@ class SistemaValidaciones():
     def validarnit(self, nit):
         try:
             nit = str(nit).strip()
-            ##obtener ultimo digito y guio
-            ultimodato = nit[-2:]
-            ##Validar guion
-            guion = ultimodato[:1]
-            if guion == '-':
-                #Validar digito validacion
-                digitovalidacion = ultimodato[1:2]
-                opcionesvalidas = ['0','1','2','3','4','5','6','7','8','9','K','k']
-                if digitovalidacion in opcionesvalidas:
-                    self.msg(f'nit valido -> {nit}')
-                    return nit
+            #Validar primero digitos
+            primerosdatos = nit[:-2]
+            banderabien = True
+            opcionesvalidasprimero = ['0','1','2','3','4','5','6','7','8','9']
+            for caracter in primerosdatos:
+                if caracter in opcionesvalidasprimero:
+                    pass
                 else:
-                    mensaje=f'nit Invalido! ultimo digitio invalido -> {nit}'
+                    banderabien = False
+            
+            if banderabien == True:
+                #Valida ultimos ditigitos
+                ##obtener ultimo digito y guio
+                ultimodato = nit[-2:]
+                ##Validar guion
+                guion = ultimodato[:1]
+                if guion == '-':
+                    #Validar digito validacion
+                    digitovalidacion = ultimodato[1:2]
+                    opcionesvalidas = ['0','1','2','3','4','5','6','7','8','9','K','k']
+                    if digitovalidacion in opcionesvalidas:
+                        self.msg(f'nit valido -> {nit}')
+                        return nit
+                    else:
+                        mensaje=f'nit Invalido! ultimo digitio invalido -> {nit}'
+                        self.msg(mensaje)
+                        self.msjErrores += mensaje+'\n'
+                        return "#E1#"+nit
+                else:
+                    mensaje = f'nit Invalido! Falta Guion en su lugar -> {nit}'
                     self.msg(mensaje)
                     self.msjErrores += mensaje+'\n'
-                    return "#E1#"+nit
+                    return "#E2#"+nit
             else:
-                mensaje = f'nit Invalido! Falta Guion en su lugar -> {nit}'
+                mensaje = f'nit Invalido! primero digitos invalidos -> {nit}'
                 self.msg(mensaje)
                 self.msjErrores += mensaje+'\n'
-                return "#E2#"+nit
+                return "#E0#"+nit
+
         except Exception as e:
             mensaje = f'Error nit Invalido!  -> {nit}'
             self.msg(mensaje)
