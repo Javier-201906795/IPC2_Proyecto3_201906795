@@ -16,23 +16,50 @@ class SistemaValidaciones():
     def ValidarArchivoConfiguaracion(self):
         self.msg('Validando Archivo de Configuracion')
         if self.ArchivoConfiguracion != None:
+            ###################################################
             #Recorrer Lista Recursos
             self.msg('Validar Lista Recursos')
             for Recurso in self.ListaRecursos:
                 #Validar Recurso
                 self.ValidacionRecurso(Recurso)
-            
+            #Imprimir Errores
+            if self.msjErrores != '':
+                print('Errores Recurso: ',self.msjErrores)
+            ###################################################
             #Recorrer Lista Clientes
             self.msg('Validar Lista Clientes')
             for Cliente in self.ListaClientes:
                 #Validar Cliente
                 self.ValidacionCliente(Cliente)
-            
+            #Imprimir Errores
+            if self.msjErrores != '':
+                print('Errores Recurso y Clientes: ',self.msjErrores)
+            ###################################################
     def ValidacionCliente(self, cliente):
         try:
-            #Datos A validar
+            ##################
+            #VALIDACION NIT
+            ##Datos A validar
             nit = cliente.nit
             print(nit)
+            ##obtener ultimo digito y guio
+            ultimodato = nit[-2:]
+            ##Validar guion
+            guion = ultimodato[:1]
+            if guion == '-':
+                #Validar digito validacion
+                digitovalidacion = ultimodato[1:2]
+                opcionesvalidas = ['0','1','2','3','4','5','6','7','8','9','K','k']
+                if digitovalidacion in opcionesvalidas:
+                    self.msg(f'nit valido -> {nit}')
+                else:
+                    mensaje=f'nit Invalido! ultimo digitio invalido -> {nit}'
+                    self.msg(mensaje)
+                    self.msjErrores += mensaje+'\n'
+            else:
+                mensaje = f'nit Invalido! Falta Guion en su lugar -> {nit}'
+                self.msg(mensaje)
+                self.msjErrores += mensaje+'\n'
 
         except Exception as e:
             self.mgs('Erro en ValidacioCliente()',e)
@@ -61,7 +88,10 @@ class SistemaValidaciones():
             if opcionevaluar in opcionesvalalidas:
                 self.msg(f'recurso tipo: opcion valida -> {opcionevaluar}')
             else:
-                self.msg(f'recurso tipo: opcion Invalida -> {opcionevaluar}')
+                opcionevaluar = opcionesvalalidas[0]
+                mensaje = f'recurso tipo: opcion Invalida -> {opcionevaluar}'
+                self.msg(mensaje)
+                self.msjErrores += mensaje+'\n'
             #Retornoar
 
             return opcionevaluar

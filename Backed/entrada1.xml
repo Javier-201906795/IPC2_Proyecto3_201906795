@@ -49,7 +49,7 @@
     </categoria>
 </listaCategorias>
 <listaClientes>
-    <cliente nit="34300-4">
+    <cliente nit="34300-k">
         <nombre> matusalen </nombre>
         <usuario> matusalen </usuario>
         <clave> 1234 </clave>
