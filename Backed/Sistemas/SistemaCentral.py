@@ -21,6 +21,9 @@ class SistemaCentral():
         self.ArchivoConfiguracion = self.SisLeerArhvXML.obtenerArchivoConfiguracion()
     
     def ValidarArchivo(self):
+        #Enviar Archivo
+        self.SisVal.asignarArchivoConfiguracion(self.ArchivoConfiguracion)
+        #Validar
         self.SisVal.ValidarArchivoConfiguaracion()
 
 
