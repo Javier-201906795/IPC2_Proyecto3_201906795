@@ -1,11 +1,14 @@
 import os
 
 from SistemaLecturaXML import SistemaLeerArchivosXML
+from SistemaValidaciones import SistemaValidaciones
 
 class SistemaCentral():
     def __init__(self):
         self.SisLeerArhvXML = SistemaLeerArchivosXML()
         self.ArchivoConfiguracion = None
+
+        self.SisVal = SistemaValidaciones()
     
     def LeerArchivo(self,ruta):
         self.SisLeerArhvXML.asignarruta(ruta_archivo)
@@ -18,7 +21,7 @@ class SistemaCentral():
         self.ArchivoConfiguracion = self.SisLeerArhvXML.obtenerArchivoConfiguracion()
     
     def ValidarArchivo(self):
-        pass
+        self.SisVal.ValidarArchivoConfiguaracion()
 
 
 
@@ -39,4 +42,9 @@ ruta_archivo = os.path.abspath(os.path.join(ruta_actual, '..', 'entrada1.xml'))
 SisCntr.LeerArchivo(ruta_archivo)
 
 
+#Validar Archivo
+SisCntr.ValidarArchivo()
+
+
 ####################################################################
+

@@ -121,7 +121,7 @@ class SistemaLeerArchivosXML():
                 for XMLConfiguracion in XMLVariasConfiguraciones:
                     # print(XMLConfiguracion.toxml())
                     Confid = XMLConfiguracion.getAttribute('id').strip()
-                    Confnombre = XMLConfiguracion.getElementsByTagName('nombre')[0].firstChild.data.lstrip().lower()
+                    Confnombre = XMLConfiguracion.getElementsByTagName('nombre')[0].firstChild.data.lstrip()
                     Confdescripcion = XMLConfiguracion.getElementsByTagName('descripcion')[0].firstChild.data.lstrip().lower()
                     claseConfiguracion = CConfiguracion(Confid,Confnombre,Confdescripcion)
                     # claseConfiguracion.desplegar()
