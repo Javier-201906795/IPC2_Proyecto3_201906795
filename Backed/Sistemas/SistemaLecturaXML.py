@@ -70,26 +70,33 @@ class SistemaLeerArchivosXML():
                 claseCliente = CCliente(Cliid,Clinombre,Cliusuario,Cliclave,Clidireccion,ClicorreoElectronico)
                 
                 #Lista Instancias
-                Listainstancias = claseCliente.listainstancias
-                XMLListainstancias = XMLCliente.getElementsByTagName('listaInstancias')[0]
-                XMLVariasInstancias = XMLListainstancias.getElementsByTagName('instancia')
-                for XMLInstancia in XMLVariasInstancias:
-                    Insid= XMLInstancia.getAttribute('id').strip()
-                    Insidconfiguracion = XMLInstancia.getElementsByTagName('idConfiguracion')[0].firstChild.data.lstrip().lower()
-                    Insnombre= XMLInstancia.getElementsByTagName('nombre')[0].firstChild.data.lstrip().lower()
-                    InsfechaInicio= XMLInstancia.getElementsByTagName('fechaInicio')[0].firstChild.data.lstrip().lower()
-                    Insestado = XMLInstancia.getElementsByTagName('estado')[0].firstChild.data.lstrip().lower()
-                    InsfechaFinal= XMLInstancia.getElementsByTagName('fechaFinal')[0].firstChild.data.lstrip().lower()
-                    #clase
-                    claseInstancia = CInstancias(Insid,Insidconfiguracion,Insnombre,InsfechaInicio,Insestado,InsfechaFinal)
-                    # claseInstancia.desplegar()
-                    #almacenar en lista
-                    Listainstancias.append(claseInstancia)
+                ListainstanciasTOTAL = claseCliente.listainstancias
                 
-                # claseCliente.desplegar()
+                XMLListainstancias = XMLCliente.getElementsByTagName('listaInstancias')
+                for XMLLista2Instancias in XMLListainstancias:
+                    Listainstancias = []
+                    XMLVariasInstancias = XMLLista2Instancias.getElementsByTagName('instancia')
+                    for XMLInstancia in XMLVariasInstancias:
+                        Insid= XMLInstancia.getAttribute('id').strip()
+                        Insidconfiguracion = XMLInstancia.getElementsByTagName('idConfiguracion')[0].firstChild.data.lstrip().lower()
+                        Insnombre= XMLInstancia.getElementsByTagName('nombre')[0].firstChild.data.lstrip().lower()
+                        InsfechaInicio= XMLInstancia.getElementsByTagName('fechaInicio')[0].firstChild.data.lstrip().lower()
+                        Insestado = XMLInstancia.getElementsByTagName('estado')[0].firstChild.data.lstrip().lower()
+                        InsfechaFinal= XMLInstancia.getElementsByTagName('fechaFinal')[0].firstChild.data.lstrip().lower()
+                        #clase
+                        claseInstancia = CInstancias(Insid,Insidconfiguracion,Insnombre,InsfechaInicio,Insestado,InsfechaFinal)
+                        # claseInstancia.desplegar()
+                        #almacenar en lista
+                        Listainstancias.append(claseInstancia)
+                    
+                    # claseCliente.desplegar()
+                    #GUARDAR en lista Total
+                    ListainstanciasTOTAL.append(Listainstancias)
                 #Guardar
                 self.ListaClientes.append(claseCliente)
                 print('\n')
+
+                    
                 
 
 

@@ -78,8 +78,14 @@ class CCliente():
         print('>>> [Cliente] ***')
         print(f"--- NIT: {self.nit}, Nombre: {self.nombre}, Usuario: {self.usuario}, Clave: {self.clave}, Direccion: {self.direccion}, Correo Electronico: {self.correoelectronico}")
         print('---- [Instancias]')
+        contador = 0
         for instancia in self.listainstancias:
-            instancia.desplegar()
+            contador+=1
+            print(f'        /////[Lista Instancia {contador}]')
+            for lista in instancia:
+                
+                
+                lista.desplegar()   
         print('---- [Fin Instancias]')
         print('>>> [Fin Cliente] ***')
         
@@ -95,7 +101,7 @@ class CInstancias():
         self.fechafinal = fechafinal
     
     def desplegar(self):
-        print(f"   ID: {self.id}, ID Configuracion: {self.idconfiguracion}, Nombre: {self.nombre}, Fecha Inicio: {self.fechainicio}, Estado: {self.estado}, Fecha Final: {self.fechafinal}")
+        print(f"              ID: {self.id}, ID Configuracion: {self.idconfiguracion}, Nombre: {self.nombre}, Fecha Inicio: {self.fechainicio}, Estado: {self.estado}, Fecha Final: {self.fechafinal}")
 
 ########################################################
 class CArchivoConfiguracion():
