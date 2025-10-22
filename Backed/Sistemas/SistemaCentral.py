@@ -37,6 +37,8 @@ class SistemaCentral():
     def GuaradarArchivoConfiguraciones(self, ruta):
         #Asignar Ruta
         self.SisSalidaXML.asignarruta(ruta)
+        #Enviar informacion
+        self.SisSalidaXML.asignarArchivoConfiguraciones(self.ArchivoConfiguracion)
         #Procesar info
         self.SisSalidaXML.GuardarArchivoConfiguraicones()
 
