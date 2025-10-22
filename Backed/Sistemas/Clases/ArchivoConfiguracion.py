@@ -121,3 +121,4 @@ class CArchivoConfiguracion():
             Cliente.desplegar()
         print('>>[FIN LISTA CLIENTES]')
         print('>[FIN ARCHIVO CONFIGURACION]//////////////////////////////////////////////////////////')
+        print()

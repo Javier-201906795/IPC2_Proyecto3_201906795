@@ -5,14 +5,20 @@ from SistemaLecturaXML import SistemaLeerArchivosXML
 class SistemaCentral():
     def __init__(self):
         self.SisLeerArhvXML = SistemaLeerArchivosXML()
+        self.ArchivoConfiguracion = None
     
     def LeerArchivo(self,ruta):
         self.SisLeerArhvXML.asignarruta(ruta_archivo)
         #Leer Archivo XML
         self.SisLeerArhvXML.leerArchivo()    
         # print(self.SisLeerArhvXML.contenidoXML)
-        #Segmentar Archivo XML
+        #Segmentar Archivo XML a clases
         self.SisLeerArhvXML.SegmentarArchivo()
+        #Guardar
+        self.ArchivoConfiguracion = self.SisLeerArhvXML.obtenerArchivoConfiguracion()
+    
+    def ValidarArchivo(self):
+        pass
 
 
 

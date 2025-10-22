@@ -14,7 +14,10 @@ class SistemaLeerArchivosXML():
         self.ListaRecursos = self.CArchivoConfiguracion.listaRecursos
         self.ListaCategorias = self.CArchivoConfiguracion.listaCategorias
         self.ListaClientes = self.CArchivoConfiguracion.listaClientes
-        
+
+    def obtenerArchivoConfiguracion(self):
+        return self.CArchivoConfiguracion
+
     
     def msg(self, mensaje, extra=None):
         print(f'[SistemaLeerArchivosXML]>> {mensaje}')
@@ -25,7 +28,6 @@ class SistemaLeerArchivosXML():
         self.ruta = ruta
         self.msg('Ruta Asignada', ruta)
 
-    
     
     def SegmentarArchivo(self):
         try:
