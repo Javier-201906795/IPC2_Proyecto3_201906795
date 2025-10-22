@@ -66,7 +66,7 @@
             <instancia id="456FA586">
                 <idConfiguracion> config1 </idConfiguracion>
                 <nombre> frontend </nombre>
-                <fechaInicio> Guatemala, 01/01/2025 </fechaInicio>
+                <fechaInicio> Guatemala, 1/1/2025 </fechaInicio>
                 <estado>vigente</estado>
                 <fechaFinal> en la ciudad de guatemala 01/12/2025 se brindara el servicio</fechaFinal>
             </instancia>

@@ -59,14 +59,23 @@ class SistemaValidaciones():
                 for instancia in lista:
                     # instancia.desplegar()  
                     estado = instancia.estado
+                    fechainicial = instancia.fechainicio
                     fechafinal = instancia.fechafinal
+                    #Validar Fecha Inicial
+                    print('--------')
+                    print('>Fecha Inicial: ', fechainicial) 
+                    fechainicial = self.validarfecha(fechainicial)
+                    print('>>Fecha Inicial: ', fechainicial) 
+                    print('--')
+
+
                     print('>Estado: ',estado,' Fecha Final: ', fechafinal) 
                     #Validar Estado
                     estado = self.validarOpciones(estado,['cancelada','Cancelada','Vigente','vigente'])
-
-                    #Validar Fecha
+                    #Validar Fecha Final
                     fechafinal = self.validarfecha(fechafinal)
                     print('>>Estado: ',estado,' Fecha Final: ', fechafinal) 
+                    print('--------')
                     print()
             
             print('Erorres Acumulados: ', self.msjErrores)
