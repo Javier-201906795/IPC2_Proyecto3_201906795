@@ -79,13 +79,11 @@ class CCliente():
         print(f"--- NIT: {self.nit}, Nombre: {self.nombre}, Usuario: {self.usuario}, Clave: {self.clave}, Direccion: {self.direccion}, Correo Electronico: {self.correoelectronico}")
         print('---- [Instancias]')
         contador = 0
-        for instancia in self.listainstancias:
+        for lista in self.listainstancias:
             contador+=1
             print(f'        /////[Lista Instancia {contador}]')
-            for lista in instancia:
-                
-                
-                lista.desplegar()   
+            for instancia in lista:
+                instancia.desplegar()   
         print('---- [Fin Instancias]')
         print('>>> [Fin Cliente] ***')
         

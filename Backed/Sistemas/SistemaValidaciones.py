@@ -45,9 +45,37 @@ class SistemaValidaciones():
             
             ##################
             #VALIDACION LISTA INSTANCIAS
+            listainstancias = cliente.listainstancias
+            self.validainstancias(listainstancias)
+
 
         except Exception as e:
-            self.mgs('Erro en ValidacioCliente()',e)
+            self.msg('Erro en ValidacioCliente()',e)
+
+    def validainstancias(self, listainstancias):
+        try:
+            self.msg('Validar Lista Instancias')
+            for lista in listainstancias:
+                for instancia in lista:
+                    # instancia.desplegar()  
+                    estado = instancia.estado
+                    fechafinal = instancia.fechafinal
+                    print('>Estado: ',estado,' Fecha Final: ', fechafinal) 
+                    #Validar Estado
+                    estado = self.validarOpciones(estado,['cancelada','Cancelada','Vigente','vigente'])
+
+                    #Validar Fecha
+                    fechafinal = self.validarfecha(fechafinal)
+                    print('>>Estado: ',estado,' Fecha Final: ', fechafinal) 
+                    print()
+        except Exception as e:
+            self.msg('Error en validainstancias()',e)
+    
+    def validarfecha(self, txtfecha):
+        try:
+            return txtfecha
+        except Exception as e:
+            self.msg('Error en validarfecha()',e)
 
     def validarnit(self, nit):
         try:
@@ -112,16 +140,18 @@ class SistemaValidaciones():
 
     def validarOpciones(self, opcionevaluar, opcionesvalidas):
         try:
+            tempopcionesvalor = opcionevaluar
             #Convertir variable a minusculuas y quitar espacios
-            opcionevaluar = str(opcionevaluar).lstrip().lower()
+            opcionevaluar = str(opcionevaluar).strip().lower()
             #Lista Opciones Validas
             opcionesvalalidas = opcionesvalidas
             #Evaluar
             if opcionevaluar in opcionesvalalidas:
-                self.msg(f'recurso tipo: opcion valida -> {opcionevaluar}')
+                pass
+                # self.msg(f'recurso tipo: opcion valida -> {opcionevaluar}')
             else:
                 opcionevaluar = opcionesvalalidas[0]
-                mensaje = f'recurso tipo: opcion Invalida -> {opcionevaluar}'
+                mensaje = f'recurso tipo: opcion Invalida! -> {tempopcionesvalor}'
                 self.msg(mensaje)
                 self.msjErrores += mensaje+'\n'
             #Retornoar
