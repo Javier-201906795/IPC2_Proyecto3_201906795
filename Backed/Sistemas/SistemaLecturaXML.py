@@ -44,6 +44,8 @@ class SistemaLeerArchivosXML():
                 self.obtenerlistaCategorias()
                 #Obtener lista Clientes
                 self.obtenerlistaclientes()
+                #Imprimir Resultado
+                self.CArchivoConfiguracion.desplegar()
         
 
         except Exception as e:
@@ -82,7 +84,7 @@ class SistemaLeerArchivosXML():
                     #almacenar en lista
                     Listainstancias.append(claseInstancia)
                 
-                claseCliente.desplegar()
+                # claseCliente.desplegar()
                 #Guardar
                 self.ListaClientes.append(claseCliente)
                 print('\n')
@@ -140,7 +142,7 @@ class SistemaLeerArchivosXML():
                     
 
                 #Imprimir Categorias
-                claseCategoria.desplegar()  
+                # claseCategoria.desplegar()  
                 #Guardar en Lista
                 self.ListaCategorias.append(claseCategoria)
                 print('\n')  
@@ -180,7 +182,7 @@ class SistemaLeerArchivosXML():
                 #Crear Clase
                 claseRecurso = CRecurso(Recursoid,RecursoNombre,RecursoAbreviatura,RecursoMetrica,RecursoTipo,RecursoValorXhora)
                 #Imprimir
-                claseRecurso.desplegar()
+                # claseRecurso.desplegar()
                 #Guardar
                 self.ListaRecursos.append(claseRecurso)
                 

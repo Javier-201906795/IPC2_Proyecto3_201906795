@@ -11,7 +11,7 @@ class CRecurso():
         self.valorxhora = valorxhora
     
     def desplegar(self):
-        print(f"ID: {self.id}, Nombre: {self.nombre}, Abreviatura: {self.abreviatura}, Metrica: {self.metrica}, Tipo: {self.tipo}, Valor x Hora: {self.valorxhora}")
+        print(f">>>ID: {self.id}, Nombre: {self.nombre}, Abreviatura: {self.abreviatura}, Metrica: {self.metrica}, Tipo: {self.tipo}, Valor x Hora: {self.valorxhora}")
 
 #[B1]#######################################################
 
@@ -24,13 +24,13 @@ class CCategoria():
         self.listaconfiguracion = []
     
     def desplegar(self):
-        print('[ CATEGORIA ]***************************************************************************************')
-        print(f"ID: {self.id}, Nombre: {self.nombre}, Descripcion: {self.descipcion}, Carga de Trabajo: {self.cargatrabajo}")
-        print('-- [Lista Configuraciones]')
+        print('>>> [ Categoria ] ***')
+        print(f"--- ID: {self.id}, Nombre: {self.nombre}, Descripcion: {self.descipcion}, Carga de Trabajo: {self.cargatrabajo}")
+        print('>>>>>[Lista Configuraciones]')
         for configuracion in self.listaconfiguracion:
             configuracion.desplegar()
-        print('-- [Fin Lista Configuraciones]')
-        print('[Fin CATEGORIA ]*************************************************************************************')
+        print('>>>>> [Fin Lista Configuraciones]')
+        print('>>>[Fin Categoria ] ***')
 
 
 #[B2]#######################################################
@@ -44,7 +44,7 @@ class CConfiguracion():
 
     def desplegar(self):
         print('   ++ [ CONFIGURACION ]')
-        print(f"     ID: {self.id}, Nombre: {self.nombre}, Descripcion: {self.descripcion}")
+        print(f"      ID: {self.id}, Nombre: {self.nombre}, Descripcion: {self.descripcion}")
         print('        ** [Lista Recursos]')
         for recurso in self.listarecursoconfiguracion:
             recurso.desplegar()
@@ -75,13 +75,13 @@ class CCliente():
         self.listainstancias = []
     
     def desplegar(self):
-        print('[Cliente]****************************************************************')
-        print(f"NIT: {self.nit}, Nombre: {self.nombre}, Usuario: {self.usuario}, Clave: {self.clave}, Direccion: {self.direccion}, Correo Electronico: {self.correoelectronico}")
-        print('-- [Instancias]')
+        print('>>> [Cliente] ***')
+        print(f"--- NIT: {self.nit}, Nombre: {self.nombre}, Usuario: {self.usuario}, Clave: {self.clave}, Direccion: {self.direccion}, Correo Electronico: {self.correoelectronico}")
+        print('---- [Instancias]')
         for instancia in self.listainstancias:
             instancia.desplegar()
-        print('-- [Fin Instancias]')
-        print('[Fin Cliente]***********************************************************')
+        print('---- [Fin Instancias]')
+        print('>>> [Fin Cliente] ***')
         
 #[C2]#######################################################
 
@@ -103,3 +103,21 @@ class CArchivoConfiguracion():
         self.listaRecursos = []
         self.listaCategorias = []
         self.listaClientes = []
+
+    def desplegar(self):
+        print()
+        print('>[ARCHIVO CONFIGURACION]//////////////////////////////////////////////////////////////')
+        print('>>[ LISTA RECURSOS ]---')
+        for Recurso in self.listaRecursos:
+            Recurso.desplegar()
+        print('>>[FIN LISTA RECURSOS ]')
+        print('\n')
+        print('>>[ LISTA CATEGORIAS ]')
+        for Categoria in self.listaCategorias:
+            Categoria.desplegar()
+        print('>>[FIN LISTA CATEGORIAS]')
+        print('>>[LISTA CLIENTES]')
+        for Cliente in self.listaClientes:
+            Cliente.desplegar()
+        print('>>[FIN LISTA CLIENTES]')
+        print('>[FIN ARCHIVO CONFIGURACION]//////////////////////////////////////////////////////////')
