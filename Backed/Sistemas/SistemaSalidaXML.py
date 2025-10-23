@@ -164,6 +164,9 @@ class SistemaSalidaXML():
                 txt = doc.createTextNode(f'{Cliente.nombre}')
                 xmlClinombre.appendChild(txt)
 
+                xmlCliusuario = doc.createElement('fechaInicio')
+                xmlCliente.appendChild(xmlCliusuario)
+
 
                 # self.nit = nit
                 # self.nombre = nombre

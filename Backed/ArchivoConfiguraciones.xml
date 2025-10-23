@@ -49,7 +49,8 @@
  <listaCategorias/>
  <listaClientes>
   <cliente id="34390-k">
-   <nombre>matusalen2</nombre>
+   <nombre>matusalen</nombre>
+   <fechaInicio/>
   </cliente>
  </listaClientes>
 </archivoConfiguraciones>

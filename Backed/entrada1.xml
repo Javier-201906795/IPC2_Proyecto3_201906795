@@ -50,8 +50,8 @@
 </listaCategorias>
 <listaClientes>
     <cliente nit="34390-k">
-        <nombre> matusalen2 </nombre>
-        <usuario> matusalen </usuario>
+        <nombre> matusalen </nombre>
+        <usuario> matusalen1 </usuario>
         <clave> 1234 </clave>
         <direccion> Ciudad </direccion>
         <correoElectronico> matusalen@gmail.com </correoElectronico>
