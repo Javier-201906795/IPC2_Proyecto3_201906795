@@ -15,6 +15,8 @@
    <tipo>hardware</tipo>
    <valorXhora>0.75</valorXhora>
   </recurso>
+ </listaRecursos>
+ <listaCategorias>
   <categoria id="VPS1">
    <nombre>vps pequeã±o</nombre>
    <descripcion>servidor virtual pequeã±o</descripcion>
@@ -45,15 +47,14 @@
     </configuracion>
    </listaConfiguraciones>
   </categoria>
- </listaRecursos>
- <listaCategorias/>
+ </listaCategorias>
  <listaClientes>
   <cliente nit="34390-k">
    <nombre>matusalen</nombre>
    <usuario>matusalen1</usuario>
    <clave>1234</clave>
    <direccion>ciudad</direccion>
-   <correoelectronico>matusalen@gmail.com</correoelectronico>
+   <correoElectronico>matusalen@gmail.com</correoElectronico>
    <listaInstancias>
     <instancia id="KJKLJ565">
      <idConfiguracion>config2 </idConfiguracion>

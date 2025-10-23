@@ -96,7 +96,7 @@ class SistemaSalidaXML():
 
             for categoria in ListaCategorias:
                 xmlCategoria = doc.createElement('categoria')
-                xmlListaRecurso.appendChild(xmlCategoria)
+                xmlListaCategorias.appendChild(xmlCategoria)
                 
                 
                 xmlCategoria.setAttribute("id", f"{categoria.id}")
@@ -179,7 +179,7 @@ class SistemaSalidaXML():
                 txt = doc.createTextNode(f'{Cliente.direccion}')
                 xmlClidireccion.appendChild(txt)
 
-                xmlcorreoelectronico = doc.createElement('correoelectronico')
+                xmlcorreoelectronico = doc.createElement('correoElectronico')
                 xmlCliente.appendChild(xmlcorreoelectronico)
                 txt = doc.createTextNode(f'{Cliente.correoelectronico}')
                 xmlcorreoelectronico.appendChild(txt)
