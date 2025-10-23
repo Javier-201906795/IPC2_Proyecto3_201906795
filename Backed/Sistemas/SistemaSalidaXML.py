@@ -198,6 +198,11 @@ class SistemaSalidaXML():
 
                         xmlInstancia.setAttribute("id", f"{Instnacia.id}")
 
+                        xmlInsidconfig = doc.createElement('idConfiguracion')
+                        xmlInstancia.appendChild(xmlInsidconfig)
+                        txt = doc.createTextNode(f'{Instnacia.idconfiguracion}')
+                        xmlInsidconfig.appendChild(txt)
+
                         xmlInsnombre = doc.createElement('nombre')
                         xmlInstancia.appendChild(xmlInsnombre)
                         txt = doc.createTextNode(f'{Instnacia.nombre}')

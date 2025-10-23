@@ -56,12 +56,14 @@
    <correoelectronico>matusalen@gmail.com</correoelectronico>
    <listaInstancias>
     <instancia id="KJKLJ565">
+     <idConfiguracion>config2 </idConfiguracion>
      <nombre>backend</nombre>
      <fechaInicio>01/01/2025</fechaInicio>
-     <estado>vigente </estado>
+     <estado>vigente</estado>
      <fechaFinal>01/12/2025</fechaFinal>
     </instancia>
     <instancia id="456FA586">
+     <idConfiguracion>config1 </idConfiguracion>
      <nombre>frontend</nombre>
      <fechaInicio>01/01/2025</fechaInicio>
      <estado>vigente</estado>
@@ -70,15 +72,17 @@
    </listaInstancias>
    <listaInstancias>
     <instancia id="111111">
+     <idConfiguracion>config2 </idConfiguracion>
      <nombre>backend2</nombre>
      <fechaInicio>02/02/2025</fechaInicio>
-     <estado>vigente </estado>
+     <estado>vigente</estado>
      <fechaFinal>02/12/2025</fechaFinal>
     </instancia>
     <instancia id="222222">
+     <idConfiguracion>config2 </idConfiguracion>
      <nombre>backend3</nombre>
      <fechaInicio>02/02/2025</fechaInicio>
-     <estado>vigente </estado>
+     <estado>vigente</estado>
      <fechaFinal>02/12/2025</fechaFinal>
     </instancia>
    </listaInstancias>
