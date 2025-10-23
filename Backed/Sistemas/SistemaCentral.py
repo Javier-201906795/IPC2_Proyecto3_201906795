@@ -3,6 +3,7 @@ import os
 from SistemaLecturaXML import SistemaLeerArchivosXML
 from SistemaValidaciones import SistemaValidaciones
 from SistemaSalidaXML import SistemaSalidaXML
+from SistemaLecturaXMLconsumos import SistemaLeerArchivosXMLconsumos
 
 class SistemaCentral():
     def __init__(self):
@@ -12,6 +13,9 @@ class SistemaCentral():
 
         self.SisVal = SistemaValidaciones()
         self.mensajeErroresXML = None
+
+        self.SisLeerArhvXMLCons = SistemaLeerArchivosXMLconsumos()
+        self.ArchivoConsumos = None
     
     def LeerArchivo(self,ruta):
         self.SisLeerArhvXML.asignarruta(ruta)
@@ -47,7 +51,17 @@ class SistemaCentral():
         print('Leer DB Config')
         self.LeerArchivo(ruta)
 
+    ################
 
+    def LeerArchivoConsumos(self,ruta):
+        self.SisLeerArhvXMLCons.asignarruta(ruta)
+        #Leer Archivo XML
+        self.SisLeerArhvXMLCons.leerArchivo()    
+        # print(self.SisLeerArhvXML.contenidoXML)
+        #Segmentar Archivo XML a clases
+        self.SisLeerArhvXMLCons.SegmentarArchivo()
+        #Guardar
+        self.ArchivoConsumos = self.SisLeerArhvXMLCons.obtenerArchivoConsumo()
 
 
 ####################################################################
@@ -73,6 +87,14 @@ SisCntr.GuaradarArchivoConfiguraciones(ruta_archivo_config)
 #Leer DB Archivo Configuraciones
 ruta_DBConfig = os.path.abspath(os.path.join(ruta_actual, '..', 'ArchivoConfiguraciones.xml'))
 SisCntr.LeerBaseDatosArchivoConfiguraciones(ruta_DBConfig)
+
+
+###############
+
+#Leer Archivo Consumos
+ruta_archivo = os.path.abspath(os.path.join(ruta_actual, '..', 'entradaconsumos.xml'))
+SisCntr.LeerArchivoConsumos(ruta_archivo)
+
 
 ####################################################################
 
