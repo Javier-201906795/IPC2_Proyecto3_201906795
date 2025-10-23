@@ -48,8 +48,17 @@ class SistemaLeerArchivosXMLconsumos():
                 XMLVariosConsumos = XMLArchivoconsumos.getElementsByTagName('consumo')
                 #Consumos
                 for XMLConsumo in XMLVariosConsumos:
-                    pass
-                    print(XMLConsumo.toxml())
+                    # print(XMLConsumo.toxml())
+                    XMLConnitcliente = XMLConsumo.getAttribute('nitCliente').strip()
+                    XMLConidInstancia = XMLConsumo.getAttribute('idInstancia').strip()
+                    
+                    XMLContiempo = XMLConsumo.getElementsByTagName('tiempo')[0].firstChild.data.lstrip().lower()
+
+                    XMLConfechahora = XMLConsumo.getElementsByTagName('fechaHora')[0].firstChild.data.lstrip().lower()
+                    print(XMLConfechahora)
+
+
+
 
                 
         
