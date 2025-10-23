@@ -79,7 +79,7 @@ class SistemaLeerArchivosXML():
                     for XMLInstancia in XMLVariasInstancias:
                         Insid= XMLInstancia.getAttribute('id').strip()
                         Insidconfiguracion = XMLInstancia.getElementsByTagName('idConfiguracion')[0].firstChild.data.lstrip().lower()
-                        Insnombre= XMLInstancia.getElementsByTagName('nombre')[0].firstChild.data.lstrip().lower()
+                        Insnombre= XMLInstancia.getElementsByTagName('nombre')[0].firstChild.data.lstrip().lower().rstrip()
                         InsfechaInicio= XMLInstancia.getElementsByTagName('fechaInicio')[0].firstChild.data.lstrip().lower()
                         Insestado = XMLInstancia.getElementsByTagName('estado')[0].firstChild.data.lstrip().lower()
                         InsfechaFinal= XMLInstancia.getElementsByTagName('fechaFinal')[0].firstChild.data.lstrip().lower()

@@ -157,24 +157,68 @@ class SistemaSalidaXML():
             for Cliente in ListaClientes:
                 xmlCliente = doc.createElement('cliente')
                 xmlListaClientes.appendChild(xmlCliente)
-                xmlCliente.setAttribute("id", f"{Cliente.nit}")
+                xmlCliente.setAttribute("nit", f"{Cliente.nit}")
 
                 xmlClinombre = doc.createElement('nombre')
                 xmlCliente.appendChild(xmlClinombre)
                 txt = doc.createTextNode(f'{Cliente.nombre}')
                 xmlClinombre.appendChild(txt)
 
-                xmlCliusuario = doc.createElement('fechaInicio')
+                xmlCliusuario = doc.createElement('usuario')
                 xmlCliente.appendChild(xmlCliusuario)
+                txt = doc.createTextNode(f'{Cliente.usuario}')
+                xmlCliusuario.appendChild(txt)
+                
+                xmlusuario = doc.createElement('clave')
+                xmlCliente.appendChild(xmlusuario)
+                txt = doc.createTextNode(f'{Cliente.clave}')
+                xmlusuario.appendChild(txt)
+
+                xmlClidireccion = doc.createElement('direccion')
+                xmlCliente.appendChild(xmlClidireccion)
+                txt = doc.createTextNode(f'{Cliente.direccion}')
+                xmlClidireccion.appendChild(txt)
+
+                xmlcorreoelectronico = doc.createElement('correoelectronico')
+                xmlCliente.appendChild(xmlcorreoelectronico)
+                txt = doc.createTextNode(f'{Cliente.correoelectronico}')
+                xmlcorreoelectronico.appendChild(txt)
+
+                #Lista instancias
+                ListaInstancias = Cliente.listainstancias
+
+                #Pueden haber varias
+                for Lista in ListaInstancias:
+                    xmlListaInstancias = doc.createElement('listaInstancias')
+                    xmlCliente.appendChild(xmlListaInstancias)
+                    #Insncias
+                    for Instnacia in Lista:
+                        xmlInstancia = doc.createElement('instancia')
+                        xmlListaInstancias.appendChild(xmlInstancia)
+
+                        xmlInstancia.setAttribute("id", f"{Instnacia.id}")
+
+                        xmlInsnombre = doc.createElement('nombre')
+                        xmlInstancia.appendChild(xmlInsnombre)
+                        txt = doc.createTextNode(f'{Instnacia.nombre}')
+                        xmlInsnombre.appendChild(txt)
+
+                        xmlInsfechaInicio = doc.createElement('fechaInicio')
+                        xmlInstancia.appendChild(xmlInsfechaInicio)
+                        txt = doc.createTextNode(f'{Instnacia.fechainicio}')
+                        xmlInsfechaInicio.appendChild(txt)
+
+                        xmlInsestado = doc.createElement('estado')
+                        xmlInstancia.appendChild(xmlInsestado)
+                        txt = doc.createTextNode(f'{Instnacia.estado}')
+                        xmlInsestado.appendChild(txt)
+
+                        xmlInsfechaFinal = doc.createElement('fechaFinal')
+                        xmlInstancia.appendChild(xmlInsfechaFinal)
+                        txt = doc.createTextNode(f'{Instnacia.fechafinal}')
+                        xmlInsfechaFinal.appendChild(txt)
 
 
-                # self.nit = nit
-                # self.nombre = nombre
-                # self.usuario = usuario
-                # self.clave = clave
-                # self.direccion = direccion
-                # self.correoelectronico = correoelectronico
-                # self.listainstancias = []
             
             
 
