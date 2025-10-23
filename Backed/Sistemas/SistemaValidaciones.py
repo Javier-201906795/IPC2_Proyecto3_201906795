@@ -74,8 +74,8 @@ class SistemaValidaciones():
                     #Validar Fecha Inicial
                     print('--------')
                     print('>Fecha Inicial: ', fechainicial) 
-                    fechainicial = self.validarfecha(fechainicial)
-                    print('>>Fecha Inicial: ', fechainicial) 
+                    instancia.fechainicio = self.validarfecha(fechainicial)
+                    print('>>Fecha Inicial: ', instancia.fechainicio) 
                     print('--')
 
 
@@ -83,8 +83,8 @@ class SistemaValidaciones():
                     #Validar Estado
                     estado = self.validarOpciones(estado,['cancelada','Cancelada','Vigente','vigente'])
                     #Validar Fecha Final
-                    fechafinal = self.validarfecha(fechafinal)
-                    print('>>Estado: ',estado,' Fecha Final: ', fechafinal) 
+                    instancia.fechafinal = self.validarfecha(fechafinal)
+                    print('>>Estado: ',estado,' Fecha Final: ', instancia.fechafinal) 
                     print('--------')
                     print()
             
