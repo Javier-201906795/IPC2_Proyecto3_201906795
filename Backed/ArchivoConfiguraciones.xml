@@ -20,7 +20,14 @@
    <descripcion>servidor virtual pequeã±o</descripcion>
    <cargaTrabajo>para sitios web poco exigentes</cargaTrabajo>
    <listaConfiguraciones>
-    <configuracion id="config1"/>
+    <configuracion id="config1">
+     <nombre>Serivodor Basico 1</nombre>
+     <descripcion>para sitos web pequeã±os</descripcion>
+     <recursosConfiguracion>
+      <recurso id="Nucleos">2</recurso>
+      <recurso id="RAM">4</recurso>
+     </recursosConfiguracion>
+    </configuracion>
    </listaConfiguraciones>
   </categoria>
   <categoria id="VPS2">
@@ -28,7 +35,14 @@
    <descripcion>para sitios web con backend </descripcion>
    <cargaTrabajo>trabaja el frontend y backend sencillos</cargaTrabajo>
    <listaConfiguraciones>
-    <configuracion id="config2"/>
+    <configuracion id="config2">
+     <nombre>Servidor Basico 2</nombre>
+     <descripcion>para el backend y frontend sencillo</descripcion>
+     <recursosConfiguracion>
+      <recurso id="Nucleos">4</recurso>
+      <recurso id="RAM">8</recurso>
+     </recursosConfiguracion>
+    </configuracion>
    </listaConfiguraciones>
   </categoria>
  </listaRecursos>

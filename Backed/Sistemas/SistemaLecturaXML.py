@@ -128,8 +128,8 @@ class SistemaLeerArchivosXML():
                 for XMLConfiguracion in XMLVariasConfiguraciones:
                     # print(XMLConfiguracion.toxml())
                     Confid = XMLConfiguracion.getAttribute('id').strip()
-                    Confnombre = XMLConfiguracion.getElementsByTagName('nombre')[0].firstChild.data.lstrip()
-                    Confdescripcion = XMLConfiguracion.getElementsByTagName('descripcion')[0].firstChild.data.lstrip().lower()
+                    Confnombre = XMLConfiguracion.getElementsByTagName('nombre')[0].firstChild.data.lstrip().rstrip()
+                    Confdescripcion = XMLConfiguracion.getElementsByTagName('descripcion')[0].firstChild.data.lstrip().lower().rstrip()
                     claseConfiguracion = CConfiguracion(Confid,Confnombre,Confdescripcion)
                     claseConfiguracion.desplegar()
                     
@@ -140,7 +140,7 @@ class SistemaLeerArchivosXML():
                     for XMLRecurso in XMLVariosRecursos:
                         # print(XMLRecurso.toxml())
                         Recursoid = XMLRecurso.getAttribute('id').strip()
-                        Recursocantidad = XMLRecurso.firstChild.data
+                        Recursocantidad = XMLRecurso.firstChild.data.strip()
                         claseRecurso = CRecursoConfiguracion(Recursoid, Recursocantidad)
                         # claseRecurso.desplegar()
                         #Almacenar

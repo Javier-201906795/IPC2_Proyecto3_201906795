@@ -126,6 +126,30 @@ class SistemaSalidaXML():
                     xmlListaConfiguraciones.appendChild(xmlconfiguracion)
 
                     xmlconfiguracion.setAttribute("id", f"{config.id}")
+                
+                    xmlConfnombre = doc.createElement('nombre')
+                    xmlconfiguracion.appendChild(xmlConfnombre)
+                    txt= doc.createTextNode(f'{config.nombre}')
+                    xmlConfnombre.appendChild(txt)
+
+                    xmlConfdescripcion = doc.createElement('descripcion')
+                    xmlconfiguracion.appendChild(xmlConfdescripcion)
+                    txt= doc.createTextNode(f'{config.descripcion}')
+                    xmlConfdescripcion.appendChild(txt)
+
+                    #Lista Recursos
+                    xmlListaRecursoConfiguracion = doc.createElement('recursosConfiguracion')
+                    xmlconfiguracion.appendChild(xmlListaRecursoConfiguracion)
+                    ListaRecursosConfiguracion = config.listarecursoconfiguracion
+
+                    for recursoconfig in ListaRecursosConfiguracion:
+                        xmlrecursoconfig = doc.createElement('recurso')
+                        xmlListaRecursoConfiguracion.appendChild(xmlrecursoconfig)
+                        xmlrecursoconfig.setAttribute("id", f"{recursoconfig.id}")
+
+                        txt= doc.createTextNode(f'{recursoconfig.cantidadrecurso}')
+                        xmlrecursoconfig.appendChild(txt)
+
 
             
             
