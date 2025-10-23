@@ -123,7 +123,7 @@ class SistemaLeerArchivosXML():
                 
                 #Lista Configuraciones
                 ListaConfiguracion =claseCategoria.listaconfiguracion
-                XMLListaConfiguraciones = XMLListaCategorias.getElementsByTagName('listaConfiguraciones')[0]
+                XMLListaConfiguraciones = XMLCategoria.getElementsByTagName('listaConfiguraciones')[0]
                 XMLVariasConfiguraciones = XMLListaConfiguraciones.getElementsByTagName('configuracion')
                 for XMLConfiguracion in XMLVariasConfiguraciones:
                     # print(XMLConfiguracion.toxml())
@@ -131,7 +131,7 @@ class SistemaLeerArchivosXML():
                     Confnombre = XMLConfiguracion.getElementsByTagName('nombre')[0].firstChild.data.lstrip()
                     Confdescripcion = XMLConfiguracion.getElementsByTagName('descripcion')[0].firstChild.data.lstrip().lower()
                     claseConfiguracion = CConfiguracion(Confid,Confnombre,Confdescripcion)
-                    # claseConfiguracion.desplegar()
+                    claseConfiguracion.desplegar()
                     
                     #Lista Recuros
                     LisaRecuros = claseConfiguracion.listarecursoconfiguracion
