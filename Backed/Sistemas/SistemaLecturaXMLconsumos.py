@@ -10,6 +10,9 @@ class SistemaLeerArchivosXMLconsumos():
 
         self.ArchivoListaConsumos = CListaconsumos()
     
+    def obtenerArchivoListaConsumos(self):
+        return self.ArchivoListaConsumos
+    
     def msg(self, mensaje, extra=None):
         print(f'[SistemaLeerArchivosXMLconsumos]>> {mensaje}')
         if extra != None and extra != '' and extra != ' ':

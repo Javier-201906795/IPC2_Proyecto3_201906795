@@ -50,6 +50,8 @@ class SistemaCentral():
         #Leer Archivo Base Datos Config
         print('Leer DB Config')
         self.LeerArchivo(ruta)
+    
+    
 
     ################
 
@@ -61,7 +63,19 @@ class SistemaCentral():
         #Segmentar Archivo XML a clases
         self.SisLeerArhvXMLCons.SegmentarArchivo()
         #Guardar
-        self.ArchivoConsumos = self.SisLeerArhvXMLCons.obtenerArchivoConsumo()
+        self.ArchivoConsumos = self.SisLeerArhvXMLCons.obtenerArchivoListaConsumos()
+    
+    def ValidarArchivoConsumosCliente(self):
+        #Enviar Archivo
+        self.SisVal.asignarArchivoConsumoClientes(self.ArchivoConsumos)
+        #Validar
+        self.SisVal.ValidarArchivoConsumos()
+        # #Guardar
+        # self.ArchivoConfiguracion = self.SisVal.obtenerArchivoConfiguracion()
+        # #Mensaje errores
+        # self.mensajeErroresXML = self.SisVal.obtenermensajeerrores()
+        # print('msg Errores: ', self.mensajeErroresXML)
+
 
 
 ####################################################################
@@ -94,6 +108,9 @@ SisCntr.LeerBaseDatosArchivoConfiguraciones(ruta_DBConfig)
 #Leer Archivo Consumos
 ruta_archivo = os.path.abspath(os.path.join(ruta_actual, '..', 'entradaconsumos.xml'))
 SisCntr.LeerArchivoConsumos(ruta_archivo)
+
+#Validar Archivo
+SisCntr.ValidarArchivoConsumosCliente()
 
 
 ####################################################################

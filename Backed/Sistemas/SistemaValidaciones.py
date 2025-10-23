@@ -10,6 +10,8 @@ class SistemaValidaciones():
         self.ListaRecursos = None
         self.ListaCategorias = None
         self.ListaClientes = None
+
+        self.ArchivoConsumos = None
     
     
     def obtenerArchivoConfiguracion(self):
@@ -17,6 +19,21 @@ class SistemaValidaciones():
     
     def obtenermensajeerrores(self):
         return self.msjErrores
+
+    def ValidarArchivoConsumos(self):
+        try:
+            self.msg('Validando Archivo consumos')
+            if self.ArchivoConsumos != None:
+                ListaConsumos = self.ArchivoConsumos.Listaconsumos
+                for Consumo in ListaConsumos:
+                    Consumo.desplegar()
+                    #Validar nit
+                    #Validar tiempo
+                    #Validar fechaHora
+
+        except Exception as e:
+            self.msg('ValidarArchivoConsumos',e)
+
 
     def ValidarArchivoConfiguaracion(self):
         try:
@@ -225,3 +242,10 @@ class SistemaValidaciones():
             self.ListaClientes = self.ArchivoConfiguracion.listaClientes
         except Exception as e:
             self.msg('Error en  asignarArchivoConfiguracion()',e)
+
+    def asignarArchivoConsumoClientes(self,Clase):
+        try:
+            self.msg('Se asigno el archivo consumos Clientes')
+            self.ArchivoConsumos = Clase
+        except Exception as e:
+            self.msg('Error en asignarArchivoConsumoClientes()',e)
