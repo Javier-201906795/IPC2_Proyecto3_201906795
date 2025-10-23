@@ -1,6 +1,6 @@
 from xml.dom.minidom import Document, parse, parseString
 
-
+from Clases.ArchivoConsumos import *
 
 class SistemaLeerArchivosXMLconsumos():
     def __init__(self):
@@ -8,7 +8,7 @@ class SistemaLeerArchivosXMLconsumos():
         self.contenidoXML = None
         self.domXML = None
 
-        self.ArchivoListaConsumos = None
+        self.ArchivoListaConsumos = CListaconsumos()
     
     def msg(self, mensaje, extra=None):
         print(f'[SistemaLeerArchivosXMLconsumos]>> {mensaje}')
@@ -42,8 +42,10 @@ class SistemaLeerArchivosXMLconsumos():
             self.msg('Segmentar Archivo')
             Dom = self.domXML
             if Dom != None:
-                #Obtenre ArchivoConfiguracion Solo el primero
+                #Obtenre Solo el primero
                 XMLArchivoconsumos = Dom.getElementsByTagName('listadoConsumos')[0]
+                #Obtener Lista
+                ListaConsumosCliente = self.ArchivoListaConsumos.Listaconsumos
                 #Recorrer listas
                 XMLVariosConsumos = XMLArchivoconsumos.getElementsByTagName('consumo')
                 #Consumos
@@ -55,11 +57,15 @@ class SistemaLeerArchivosXMLconsumos():
                     XMLContiempo = XMLConsumo.getElementsByTagName('tiempo')[0].firstChild.data.lstrip().lower()
 
                     XMLConfechahora = XMLConsumo.getElementsByTagName('fechaHora')[0].firstChild.data.lstrip().lower()
-                    print(XMLConfechahora)
 
+                    claseConsumoCliente = CConsumoCliente(XMLConnitcliente,XMLConidInstancia,XMLContiempo,XMLConfechahora)
+                    # claseConsumoCliente.desplegar()
 
+                    #GUARDAR
+                    ListaConsumosCliente.append(claseConsumoCliente)
 
-
+                #imprimir
+                self.ArchivoListaConsumos.desplegar()
                 
         
 

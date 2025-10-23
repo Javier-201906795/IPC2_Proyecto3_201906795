@@ -2,8 +2,8 @@
 
 
 class CListaconsumos():
-    def __init__(self, Listaconsumos):
-        self.Listaconsumos = Listaconsumos
+    def __init__(self):
+        self.Listaconsumos = []
     
     def desplegar(self):
         print('[Lista consumos]--')
