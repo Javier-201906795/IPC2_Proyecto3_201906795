@@ -15,5 +15,12 @@
    <tipo>hardware</tipo>
    <valorXhora>0.75</valorXhora>
   </recurso>
+  <categoria id="VPS1">
+   <nombre>vps pequeã±o</nombre>
+  </categoria>
+  <categoria id="VPS2">
+   <nombre>vps mediano</nombre>
+  </categoria>
  </listaRecursos>
+ <listaCategorias/>
 </archivoConfiguraciones>

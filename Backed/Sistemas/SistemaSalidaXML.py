@@ -43,6 +43,7 @@ class SistemaSalidaXML():
     def segmentar_archivo_XML(self):
         try:
             self.msg('segmentar archivo...')
+            self.ArchivoConfig.desplegar()
             root = self.root
             doc = self.doc
             ListaRecursos = self.ArchivoConfig.listaRecursos
@@ -51,11 +52,12 @@ class SistemaSalidaXML():
 
             
 
-            xmlListaRecurso = doc.createElement('listaRecursos')
-            root.appendChild(xmlListaRecurso)
+           
 
             
             #Lista Recursos
+            xmlListaRecurso = doc.createElement('listaRecursos')
+            root.appendChild(xmlListaRecurso)
             for recurso in ListaRecursos:
                 xmlRecurso = doc.createElement('recurso')
                 xmlListaRecurso.appendChild(xmlRecurso)
@@ -86,8 +88,26 @@ class SistemaSalidaXML():
                 xmlRecurso.appendChild(xmlValorxhora)
                 txt= doc.createTextNode(f'{recurso.valorxhora}')    
                 xmlValorxhora.appendChild(txt)
+            
+            
+            #Lista Categorias
+            xmlListaCategorias = doc.createElement('listaCategorias')
+            root.appendChild(xmlListaCategorias)
+
+            for categoria in ListaCategorias:
+                xmlCategoria = doc.createElement('categoria')
+                xmlListaRecurso.appendChild(xmlCategoria)
                 
                 
+                xmlCategoria.setAttribute("id", f"{categoria.id}")
+
+                xmlCatnombre = doc.createElement('nombre')
+                xmlCategoria.appendChild(xmlCatnombre)
+                txt= doc.createTextNode(f'{str(categoria.nombre).rstrip()}')
+                xmlCatnombre.appendChild(txt)
+                
+                # categoria.descipcion = descripcion
+                # categoria.cargatrabajo = cargatrabajo
 
 
             
