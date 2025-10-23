@@ -38,27 +38,28 @@ class SistemaSalidaXML():
             self.msg('No se ha asignado ruta salida')
     
     
-    def agregarhijo(self,hijo,padre):
-        try:
-            doc = self.doc
-
-            nodo = doc.createElement(hijo)
-            padre.appendChild(nodo)
-        except Exception as e:
-            self.msg('Error en agregarhijo()',e)
+    
     
     def segmentar_archivo_XML(self):
         try:
             self.msg('segmentar archivo...')
-            doc = self.doc
             root = self.root
+            doc = self.doc
+            ListaRecursos = self.ArchivoConfig.listaRecursos
+            ListaCategorias = self.ArchivoConfig.listaCategorias
+            ListaClientes = self.ArchivoConfig.listaClientes
 
-            self.agregarhijo('listaRecursos',root)
-            # listaRecusos = doc.createElement('listaRecursos')
-            # root.appendChild(listaRecusos)
             
-            # self.listaInvernaderos = doc.createElement('listaInvernaderos')
-            # root.appendChild(self.listaInvernaderos)
+
+            xmlListaRecurso = doc.createElement('listaRecursos')
+            root.appendChild(xmlListaRecurso)
+
+            
+            #Lista Recursos
+            for recurso in ListaRecursos:
+                pass
+                #padre
+                # XMLrecurso =
 
             # #Lista invernaderos
             # for i in range(0,self.colainvernaderos.tamano()):
