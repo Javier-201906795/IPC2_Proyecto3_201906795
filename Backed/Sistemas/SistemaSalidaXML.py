@@ -150,7 +150,28 @@ class SistemaSalidaXML():
                         txt= doc.createTextNode(f'{recursoconfig.cantidadrecurso}')
                         xmlrecursoconfig.appendChild(txt)
 
+                #Lista Clientes
+                xmlListaClientes = doc.createElement('listaClientes')
+                root.appendChild(xmlListaClientes)
 
+                for Cliente in ListaClientes:
+                    xmlCliente = doc.createElement('cliente')
+                    xmlListaClientes.appendChild(xmlCliente)
+                    xmlCliente.setAttribute("id", f"{Cliente.nit}")
+
+                    xmlClinombre = doc.createElement('nombre')
+                    xmlCliente.appendChild(xmlClinombre)
+                    txt = doc.createTextNode(f'{Cliente.nombre}')
+                    xmlClinombre.appendChild(txt)
+
+
+                    # self.nit = nit
+                    # self.nombre = nombre
+                    # self.usuario = usuario
+                    # self.clave = clave
+                    # self.direccion = direccion
+                    # self.correoelectronico = correoelectronico
+                    # self.listainstancias = []
             
             
 

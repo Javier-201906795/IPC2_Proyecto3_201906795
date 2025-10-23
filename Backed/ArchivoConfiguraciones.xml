@@ -47,4 +47,14 @@
   </categoria>
  </listaRecursos>
  <listaCategorias/>
+ <listaClientes>
+  <cliente id="34390-k">
+   <nombre>matusalen2</nombre>
+  </cliente>
+ </listaClientes>
+ <listaClientes>
+  <cliente id="34390-k">
+   <nombre>matusalen2</nombre>
+  </cliente>
+ </listaClientes>
 </archivoConfiguraciones>
