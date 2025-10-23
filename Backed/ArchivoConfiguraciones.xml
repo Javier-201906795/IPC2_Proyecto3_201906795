@@ -17,9 +17,19 @@
   </recurso>
   <categoria id="VPS1">
    <nombre>vps pequeã±o</nombre>
+   <descripcion>servidor virtual pequeã±o</descripcion>
+   <cargaTrabajo>para sitios web poco exigentes</cargaTrabajo>
+   <listaConfiguraciones>
+    <configuracion id="config1"/>
+   </listaConfiguraciones>
   </categoria>
   <categoria id="VPS2">
    <nombre>vps mediano</nombre>
+   <descripcion>para sitios web con backend </descripcion>
+   <cargaTrabajo>trabaja el frontend y backend sencillos</cargaTrabajo>
+   <listaConfiguraciones>
+    <configuracion id="config1"/>
+   </listaConfiguraciones>
   </categoria>
  </listaRecursos>
  <listaCategorias/>

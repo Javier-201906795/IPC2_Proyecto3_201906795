@@ -105,10 +105,27 @@ class SistemaSalidaXML():
                 xmlCategoria.appendChild(xmlCatnombre)
                 txt= doc.createTextNode(f'{categoria.nombre}')
                 xmlCatnombre.appendChild(txt)
-                
-                # categoria.descipcion = descripcion
-                # categoria.cargatrabajo = cargatrabajo
 
+                xmlCatdescripcion = doc.createElement('descripcion')
+                xmlCategoria.appendChild(xmlCatdescripcion)
+                txt= doc.createTextNode(f'{categoria.descipcion}')
+                xmlCatdescripcion.appendChild(txt)
+
+                xmlCatcargatrabajo = doc.createElement('cargaTrabajo')
+                xmlCategoria.appendChild(xmlCatcargatrabajo)
+                txt= doc.createTextNode(f'{categoria.cargatrabajo}')
+                xmlCatcargatrabajo.appendChild(txt)
+                
+                #ListaConfiguraciones
+                xmlListaConfiguraciones = doc.createElement('listaConfiguraciones')
+                xmlCategoria.appendChild(xmlListaConfiguraciones)
+                ListaConfiguraciones = categoria.listaconfiguracion
+
+                for config in ListaConfiguraciones:
+                    xmlconfiguracion = doc.createElement('configuracion')
+                    xmlListaConfiguraciones.appendChild(xmlconfiguracion)
+
+                    xmlconfiguracion.setAttribute("id", f"{config.id}")
 
             
             
