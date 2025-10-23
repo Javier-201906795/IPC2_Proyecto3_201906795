@@ -42,9 +42,10 @@ class SistemaCentral():
         #Procesar info
         self.SisSalidaXML.GuardarArchivoConfiguraicones()
     
-    def LeerBaseDatosArchivoConfiguraciones(self):
-        #Obtener Ruta
-        ruta = self.SisSalidaXML
+    def LeerBaseDatosArchivoConfiguraciones(self, ruta):
+        #Leer Archivo Base Datos Config
+        print('Leer DB Config')
+        self.LeerArchivo(ruta)
 
 
 
@@ -68,6 +69,10 @@ SisCntr.ValidarArchivo()
 ruta_archivo_config = os.path.abspath(os.path.join(ruta_actual, '..', 'ArchivoConfiguraciones.xml'))
 SisCntr.GuaradarArchivoConfiguraciones(ruta_archivo_config)
 
+
+#Leer DB Archivo Configuraciones
+ruta_DBConfig = os.path.abspath(os.path.join(ruta_actual, '..', 'ArchivoConfiguraciones.xml'))
+SisCntr.LeerBaseDatosArchivoConfiguraciones(ruta_DBConfig)
 
 ####################################################################
 

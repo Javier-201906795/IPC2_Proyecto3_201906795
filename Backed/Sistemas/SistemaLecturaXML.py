@@ -206,6 +206,7 @@ class SistemaLeerArchivosXML():
         else:
             try:
                 self.msg('Leyendo archivo XML')
+                print(self.ruta)
                 with open(self.ruta, 'r') as archivo:
                     self.contenidoXML = archivo.read()
             except Exception as e:
