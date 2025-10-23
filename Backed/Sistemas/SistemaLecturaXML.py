@@ -63,7 +63,7 @@ class SistemaLeerArchivosXML():
                 Clinombre= XMLCliente.getElementsByTagName('nombre')[0].firstChild.data.lstrip().lower().rstrip()
                 Cliusuario= XMLCliente.getElementsByTagName('usuario')[0].firstChild.data.lstrip().lower().rstrip()
                 Cliclave= XMLCliente.getElementsByTagName('clave')[0].firstChild.data.lstrip().lower().rstrip()
-                Clidireccion= XMLCliente.getElementsByTagName('direccion')[0].firstChild.data.lstrip().lower()
+                Clidireccion= XMLCliente.getElementsByTagName('direccion')[0].firstChild.data.lstrip().lower().rstrip()
                 # Clidireccion= XMLCliente.getElementsByTagName('direccion')[0].firstChild.data.lstrip().lower()
                 ClicorreoElectronico = XMLCliente.getElementsByTagName('correoElectronico')[0].firstChild.data.lstrip().lower().rstrip()
                 #Clase

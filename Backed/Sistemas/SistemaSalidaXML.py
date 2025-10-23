@@ -226,7 +226,7 @@ class SistemaSalidaXML():
 
             
             
-
+            self.msg('Archivo segmento en XML..')
         except Exception as e:
             self.msg(f'!!! Error al segmentar_archivo_XML !!!\n',e)
         
