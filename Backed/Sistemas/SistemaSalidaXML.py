@@ -103,7 +103,7 @@ class SistemaSalidaXML():
 
                 xmlCatnombre = doc.createElement('nombre')
                 xmlCategoria.appendChild(xmlCatnombre)
-                txt= doc.createTextNode(f'{str(categoria.nombre).rstrip()}')
+                txt= doc.createTextNode(f'{categoria.nombre}')
                 xmlCatnombre.appendChild(txt)
                 
                 # categoria.descipcion = descripcion

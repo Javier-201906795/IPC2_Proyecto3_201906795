@@ -4,14 +4,14 @@
   <recurso id="Nucleos">
    <nombre>nucelos procesador </nombre>
    <abreviatura>cpu</abreviatura>
-   <metrica>und. </metrica>
+   <metrica>und.</metrica>
    <tipo>hardware</tipo>
    <valorXhora>1.2</valorXhora>
   </recurso>
   <recurso id="RAM">
    <nombre>memoria </nombre>
    <abreviatura>memram</abreviatura>
-   <metrica>GiB </metrica>
+   <metrica>GiB</metrica>
    <tipo>hardware</tipo>
    <valorXhora>0.75</valorXhora>
   </recurso>

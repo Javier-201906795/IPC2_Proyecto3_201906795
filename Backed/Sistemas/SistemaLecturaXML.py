@@ -60,12 +60,12 @@ class SistemaLeerArchivosXML():
             XMLVariosClientes = XMLListaClientes.getElementsByTagName('cliente')
             for XMLCliente in XMLVariosClientes:
                 Cliid= XMLCliente.getAttribute('nit').strip()
-                Clinombre= XMLCliente.getElementsByTagName('nombre')[0].firstChild.data.lstrip().lower()
-                Cliusuario= XMLCliente.getElementsByTagName('usuario')[0].firstChild.data.lstrip().lower()
-                Cliclave= XMLCliente.getElementsByTagName('clave')[0].firstChild.data.lstrip().lower()
+                Clinombre= XMLCliente.getElementsByTagName('nombre')[0].firstChild.data.lstrip().lower().rstrip()
+                Cliusuario= XMLCliente.getElementsByTagName('usuario')[0].firstChild.data.lstrip().lower().rstrip()
+                Cliclave= XMLCliente.getElementsByTagName('clave')[0].firstChild.data.lstrip().lower().rstrip()
                 Clidireccion= XMLCliente.getElementsByTagName('direccion')[0].firstChild.data.lstrip().lower()
-                Clidireccion= XMLCliente.getElementsByTagName('direccion')[0].firstChild.data.lstrip().lower()
-                ClicorreoElectronico = XMLCliente.getElementsByTagName('correoElectronico')[0].firstChild.data.lstrip().lower()
+                # Clidireccion= XMLCliente.getElementsByTagName('direccion')[0].firstChild.data.lstrip().lower()
+                ClicorreoElectronico = XMLCliente.getElementsByTagName('correoElectronico')[0].firstChild.data.lstrip().lower().rstrip()
                 #Clase
                 claseCliente = CCliente(Cliid,Clinombre,Cliusuario,Cliclave,Clidireccion,ClicorreoElectronico)
                 
@@ -115,9 +115,9 @@ class SistemaLeerArchivosXML():
             for XMLCategoria in XMLVariasCategorias:
                 # print(XMLCategoria.toxml())
                 Catid= XMLCategoria.getAttribute('id').strip()
-                Catnombre= XMLCategoria.getElementsByTagName('nombre')[0].firstChild.data.lstrip().lower()
+                Catnombre= XMLCategoria.getElementsByTagName('nombre')[0].firstChild.data.lstrip().lower().rstrip()
                 Catdescrpcion= XMLCategoria.getElementsByTagName('descripcion')[0].firstChild.data.lstrip().lower()
-                Catcargatrabajo = XMLCategoria.getElementsByTagName('cargaTrabajo')[0].firstChild.data.lstrip().lower()
+                Catcargatrabajo = XMLCategoria.getElementsByTagName('cargaTrabajo')[0].firstChild.data.lstrip().lower().rstrip()
                 #Clase
                 claseCategoria = CCategoria(Catid,Catnombre, Catdescrpcion,Catcargatrabajo)
                 
@@ -172,7 +172,7 @@ class SistemaLeerArchivosXML():
                 Recursoid = XMLRecurso.getAttribute('id').strip()
                 RecursoNombre = XMLRecurso.getElementsByTagName('nombre')[0].firstChild.data.lstrip().lower()
                 RecursoAbreviatura = XMLRecurso.getElementsByTagName('abreviatura')[0].firstChild.data.strip().lower()
-                RecursoMetrica = XMLRecurso.getElementsByTagName('metrica')[0].firstChild.data.lstrip()
+                RecursoMetrica = XMLRecurso.getElementsByTagName('metrica')[0].firstChild.data.lstrip().rstrip()
                 RecursoValorXhora = XMLRecurso.getElementsByTagName('valorXhora')[0].firstChild.data.strip()
                 RecursoTipo = XMLRecurso.getElementsByTagName('tipo')[0].firstChild.data.strip()
                 #Quitar espacios en blanco
