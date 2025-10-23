@@ -14,7 +14,7 @@ class SistemaCentral():
         self.mensajeErroresXML = None
     
     def LeerArchivo(self,ruta):
-        self.SisLeerArhvXML.asignarruta(ruta_archivo)
+        self.SisLeerArhvXML.asignarruta(ruta)
         #Leer Archivo XML
         self.SisLeerArhvXML.leerArchivo()    
         # print(self.SisLeerArhvXML.contenidoXML)
@@ -41,6 +41,10 @@ class SistemaCentral():
         self.SisSalidaXML.asignarArchivoConfiguraciones(self.ArchivoConfiguracion)
         #Procesar info
         self.SisSalidaXML.GuardarArchivoConfiguraicones()
+    
+    def LeerBaseDatosArchivoConfiguraciones(self):
+        #Obtener Ruta
+        ruta = self.SisSalidaXML
 
 
 
