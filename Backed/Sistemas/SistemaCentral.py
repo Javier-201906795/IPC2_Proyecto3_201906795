@@ -75,6 +75,16 @@ class SistemaCentral():
         #Mensaje errores
         self.mensajeErroresXML = self.SisVal.obtenermensajeerrores()
         print('msg Errores: ', self.mensajeErroresXML)
+        self.ArchivoConsumos.desplegar()
+    
+    def GuaradarArchivoConsumos(self, ruta):
+        pass
+        #Asignar Ruta
+        # self.SisSalidaXML.asignarruta(ruta)
+        # #Enviar informacion
+        # self.SisSalidaXML.asignarArchivoConfiguraciones(self.ArchivoConfiguracion)
+        # #Procesar info
+        # self.SisSalidaXML.GuardarArchivoConfiguraicones()
 
 
 
@@ -111,6 +121,10 @@ SisCntr.LeerArchivoConsumos(ruta_archivo)
 
 #Validar Archivo
 SisCntr.ValidarArchivoConsumosCliente()
+
+#Guardar Archivo Configuraciones XML
+ruta_archivo_config = os.path.abspath(os.path.join(ruta_actual, '..', 'ArchivoConsumos.xml'))
+SisCntr.GuaradarArchivoConsumos(ruta_archivo_config)
 
 
 ####################################################################
