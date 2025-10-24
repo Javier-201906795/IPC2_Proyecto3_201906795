@@ -33,9 +33,19 @@ def inicio():
 @app.route('/procesarConfig',   methods=['GET','POST'])
 def procesarConfig():
     try:
-        SisCentral = app.config['sistema_central']
-        SisCentral.Test()
-        return 'Archivo procesando ver consola flask'
+        SisCntr = app.config['sistema_central']
+        #Ruta
+        ruta_actual = os.path.dirname(os.path.abspath(__file__))
+        ruta_archivo = os.path.abspath(os.path.join(ruta_actual, '.', 'entrada.xml'))
+        print(ruta_archivo)
+        #Leer Archivo
+        SisCntr.LeerArchivo(ruta_archivo)
+        #Validar Archivo
+        SisCntr.ValidarArchivo()
+        #Recupear Erroes
+        mensajeerror = SisCntr.mensajeErroresXML
+        print(mensajeerror)
+        return jsonify({"errores": mensajeerror})
     except Exception as e:
         print('!!! Error FLASK inicio() !!!\n',e)
 
