@@ -5,7 +5,11 @@
     <fechaHora> 21/04/2025, guatemala</fechaHora>
  </consumo>
  <consumo nitCliente="34390-k" idInstancia="456FA586">
-    <tiempo> 2.15 horas </tiempo>
+    <tiempo> 60 minutos </tiempo>
+    <fechaHora> 22/04/2025 </fechaHora>
+ </consumo>
+ <consumo nitCliente="34390-k" idInstancia="456FA586">
+    <tiempo> 1 hora y 45 minutos </tiempo>
     <fechaHora> 22/04/2025 </fechaHora>
  </consumo>
 </listadoConsumos>

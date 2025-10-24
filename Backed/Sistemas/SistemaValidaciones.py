@@ -50,8 +50,12 @@ class SistemaValidaciones():
             fraces = tiempo.split()
             numero = 0
             palabra = ''
+
+            horas = 0
+            minutos= 0
             encontronumero = False  
             for palabra in fraces:
+                #Obtener Horas
                 #Tratar convertir en numero
                 try:
                     numero = float(palabra)
@@ -60,9 +64,21 @@ class SistemaValidaciones():
                 except:
                     #Obtener Tag
                     if palabra != '' or palabra != None and encontronumero == True:
-                        tag = str(palabra).strip()
+                        tag = str(palabra).strip().lower()
+                        #Evaluar si horas o minutos
+                        if tag in ['horas','hora']:
+                            #Guardar hora
+                            horas = numero
+                            #Reiniciar validaciones
+                            encontronumero = False
+                            numero = 0
+                        elif tag in ['minuto','minutos']:
+                            minutos = numero
 
-            return f'{numero} {tag}'
+            #Horas total
+            horastotal = float(horas) + float(minutos)/60
+
+            return horastotal
         except Exception as e:
             self.msg('Error en validartiempoconsumido()',e)
 
