@@ -39,6 +39,9 @@ class SistemaLeerArchivosXMLconsumos():
     
     def SegmentarArchivo(self):
         try:
+            #Reiniciar valores
+            self.ArchivoListaConsumos = CListaconsumos()
+
             self.msg('Convertir a DOM')
             self.domXML = parseString(self.contenidoXML)
             # print(self.domXML.toxml())

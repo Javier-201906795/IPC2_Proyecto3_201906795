@@ -120,6 +120,11 @@ SisCntr.LeerBaseDatosArchivoConfiguraciones(ruta_DBConfig)
 ruta_archivo = os.path.abspath(os.path.join(ruta_actual, '..', 'entradaconsumos.xml'))
 SisCntr.LeerArchivoConsumos(ruta_archivo)
 
+#Imprimi DB
+print('*'*50)
+SisCntr.ArchivoConsumos.desplegar()
+print('*'*50)
+
 #Validar Archivo
 SisCntr.ValidarArchivoConsumosCliente()
 
@@ -134,7 +139,7 @@ SisCntr.GuaradarArchivoConsumos(ruta_archivo_config)
 
 #Leer DB Archivo Configuraciones
 ruta_archivo_config = os.path.abspath(os.path.join(ruta_actual, '..', 'ArchivoConsumos.xml'))
-SisCntr.LeerArchivoConsumos(ruta_archivo)
+SisCntr.LeerArchivoConsumos(ruta_archivo_config)
 
 #Imprimi DB
 print('*'*50)
