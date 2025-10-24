@@ -34,7 +34,36 @@ class SistemaSalidaXMLconsumos():
     
     def segmentar_archivo_XML(self):
         try:
+            doc = self.doc
             self.msg('Segmenetar XML')
+            self.ArchivoCons.desplegar()
+
+            Listaconsumos = self.ArchivoCons.Listaconsumos
+            for Consumo in Listaconsumos:
+                nit = Consumo.nitcliente
+                idins = Consumo.idinstancia
+                tiempo = Consumo.tiempo
+                fechahora = Consumo.fechahora
+
+                xmlConsumo = doc.createElement('consumo')
+                self.root.appendChild(xmlConsumo)
+
+                xmlConsumo.setAttribute("nitCliente", f"{nit}")
+                xmlConsumo.setAttribute("idInstancia", f"{idins}")
+
+                xmltiempo = doc.createElement('tiempo')
+                xmlConsumo.appendChild(xmltiempo)
+                txt= doc.createTextNode(f'{tiempo}')
+                xmltiempo.appendChild(txt)
+
+                xmlfechahora = doc.createElement('fechaHora')
+                xmlConsumo.appendChild(xmlfechahora)
+                txt = doc.createTextNode(f'{fechahora}')
+                xmlfechahora.appendChild(txt)
+
+
+
+
         except Exception as e:
             self.msg('Error en segmentar_archivo_XML()',e)
     

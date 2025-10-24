@@ -84,7 +84,7 @@ class SistemaCentral():
         #Asignar Ruta
         self.SisSalidaXMLCons.asignarruta(ruta)
         # #Enviar informacion
-        self.SisSalidaXMLCons.asignarArchivoConfiguraciones(self.ArchivoConfiguracion)
+        self.SisSalidaXMLCons.asignarArchivoConfiguraciones(self.ArchivoConsumos)
         # #Procesar info
         self.SisSalidaXMLCons.GuardarArchivoConfiguraciones()
 
