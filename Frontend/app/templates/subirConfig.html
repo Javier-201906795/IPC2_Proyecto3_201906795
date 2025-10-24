@@ -19,11 +19,12 @@
     <main class="vh-100 d-flex align-items-center justify-content-center">
       <div class="card shadow-sm card-centered">
         <div class="card-body text-center">
-          <h1 class="card-title mb-3"> Archivo Configuraciones</h1>
+          <h1 class="card-title mb-3">Archivo Configuraciones</h1>
           <p class="text-muted mb-4">Archivo XML con las Configuraciones del sistema</p>
-
+          
           <!-- Formulario para subir archivo -->
-          <form id="uploadForm" action="/" method="post" enctype="multipart/form-data">
+          <form id="uploadForm" action="{% url 'subirConfig' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
             <div class="d-grid gap-2 mb-3">
               <input id="fileInput" name="archivo" type="file" accept=".xml,.json,.txt" class="form-control mb-2">
               <button type="submit" class="btn btn-primary">Cargar</button>
@@ -51,9 +52,9 @@
                 Archivo cargado con éxito
             </div>
             {% endif %}
-            {% if archivoProcesado %}
+            {% if error %}
             <div class="alert alert-success" role="alert" id="alertMessage">
-                Archivo procesado en sistema central
+                {{ error }}
             </div>
             {% endif %}
           </div>

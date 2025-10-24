@@ -15,6 +15,17 @@ def inicio():
     except Exception as e:
         print('!!! Error FLASK inicio() !!!\n',e)
 
+@app.route('/subirConfig',   methods=['POST'])
+def subirConfig():
+    try:
+        if request.method == 'POST':
+            if 'archivo' not in request.files:
+                mensaje = '!! No se encontro el archivo !! '
+                print(mensaje)
+            return 'hola'
+    except Exception as e:
+        print('!!! Error FLASK inicio() !!!\n',e)
+
 
 
 
