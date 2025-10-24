@@ -80,12 +80,11 @@ class SistemaCentral():
         self.ArchivoConsumos.desplegar()
     
     def GuaradarArchivoConsumos(self, ruta):
-        pass
         #Asignar Ruta
         self.SisSalidaXMLCons.asignarruta(ruta)
-        # #Enviar informacion
+        #Envia]r informacion
         self.SisSalidaXMLCons.asignarArchivoConfiguraciones(self.ArchivoConsumos)
-        # #Procesar info
+        #Procesar info
         self.SisSalidaXMLCons.GuardarArchivoConfiguraciones()
 
 
@@ -124,9 +123,23 @@ SisCntr.LeerArchivoConsumos(ruta_archivo)
 #Validar Archivo
 SisCntr.ValidarArchivoConsumosCliente()
 
+#Imprimi DB
+print('*'*50)
+SisCntr.ArchivoConsumos.desplegar()
+print('*'*50)
+
 #Guardar Archivo Configuraciones XML
 ruta_archivo_config = os.path.abspath(os.path.join(ruta_actual, '..', 'ArchivoConsumos.xml'))
 SisCntr.GuaradarArchivoConsumos(ruta_archivo_config)
+
+#Leer DB Archivo Configuraciones
+ruta_archivo_config = os.path.abspath(os.path.join(ruta_actual, '..', 'ArchivoConsumos.xml'))
+SisCntr.LeerArchivoConsumos(ruta_archivo)
+
+#Imprimi DB
+print('*'*50)
+SisCntr.ArchivoConsumos.desplegar()
+print('*'*50)
 
 
 ####################################################################
