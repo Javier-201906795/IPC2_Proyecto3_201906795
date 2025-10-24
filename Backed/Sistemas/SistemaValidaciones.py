@@ -72,7 +72,7 @@ class SistemaValidaciones():
                             hora = datetime.strptime(txthora, "%I:%M")  
                         #Entregar en formato 24 horas
                         hora = hora.strftime("%H:%M")
-                        print('hora', hora)
+                        # print('hora', hora)
                     except Exception as e:
                         self.msg(f'Error consumos al convertir a hora -> {txtfechahora}',e)
             
@@ -120,7 +120,7 @@ class SistemaValidaciones():
             except:
                 self.msg(f'Error en validartiempoconsumido() Valor numerico -> {txttiempo} ->')
 
-            return horastotal
+            return f'{horastotal} horas'
         except Exception as e:
             self.msg('Error en validartiempoconsumido()',e)
 
