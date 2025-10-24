@@ -1,56 +1,92 @@
 <?xml version="1.0"?>
 <archivoConfiguraciones>
 <listaRecursos>
-    <recurso id="idRecurso">
-        <nombre> nombre Recurso </nombre>
-        <abreviatura> abreviaturaRecurso </abreviatura>
-        <metrica> NombreMetrica </metrica>
-        <tipo> $tipoRecurso </tipo>
-        <valorXhora> valorNumerico </valorXhora>
+    <recurso id="Nucleos">
+        <nombre> Nucelos procesador </nombre>
+        <abreviatura> CPU </abreviatura>
+        <metrica> und. </metrica>
+        <tipo> Hardware </tipo>
+        <valorXhora>1.20</valorXhora>
+    </recurso>
+    <recurso id="RAM">
+        <nombre> Memoria </nombre>
+        <abreviatura>memram </abreviatura>
+        <metrica> GiB </metrica>
+        <tipo>Hardware</tipo>
+        <valorXhora>0.75</valorXhora>
     </recurso>
 </listaRecursos>
 <listaCategorias>
-    <categoria id="idCateoria">
-        <nombre> nombreCategoria </nombre>
-        <descripcion> descripcionCategoria </descripcion>
-        <cargaTrabajo> descripcionCargaTrabajo </cargaTrabajo>
+    <categoria id="VPS1">
+        <nombre> VPS pequeño </nombre>
+        <descripcion> Servidor virtual pequeño</descripcion>
+        <cargaTrabajo> para sitios web poco exigentes </cargaTrabajo>
         <listaConfiguraciones>
-            <configuracion id="idConfiguracion">
-                <nombre> nombreConfiguracion </nombre>
-                <descripcion> descripcionConfiguracion </descripcion>
+            <configuracion id="config1">
+                <nombre> Serivodor Basico 1 </nombre>
+                <descripcion> para sitos web pequeños </descripcion>
                 <recursosConfiguracion>
-                    <recurso id="idRecurso"> cantidadRecurso </recurso>
+                    <recurso id="Nucleos"> 2 </recurso>
+                    <recurso id="RAM"> 4 </recurso>
+                </recursosConfiguracion>
+            </configuracion>
+        </listaConfiguraciones>
+    </categoria>
+    <categoria id="VPS2">
+        <nombre> VPS mediano </nombre>
+        <descripcion> para sitios web con backend </descripcion>
+        <cargaTrabajo> trabaja el frontend y backend sencillos </cargaTrabajo>
+        <listaConfiguraciones>
+            <configuracion id="config2">
+                <nombre> Servidor Basico 2 </nombre>
+                <descripcion> para el backend y frontend sencillo </descripcion>
+                <recursosConfiguracion>
+                    <recurso id="Nucleos"> 4 </recurso>
+                    <recurso id="RAM"> 8 </recurso>
                 </recursosConfiguracion>
             </configuracion>
         </listaConfiguraciones>
     </categoria>
 </listaCategorias>
 <listaClientes>
-    <cliente nit="$nitCliente">
-        <nombre> nombreCliente </nombre>
-        <usuario> nombreUsuario </usuario>
-        <clave> claveUsuario </clave>
-        <direccion> direccionCliente </direccion>
-        <correoElectronico> eMailCliente </correoElectronico>
+    <cliente nit="34390-k">
+        <nombre> matusalen </nombre>
+        <usuario> matusalen1 </usuario>
+        <clave> 1234 </clave>
+        <direccion> Ciudad </direccion>
+        <correoElectronico> matusalen@gmail.com </correoElectronico>
         <listaInstancias>
-            <instancia id="idInstancia">
-            <idConfiguracion> idConfiguracion </idConfiguracion>
-            <nombre> nombreInstancia </nombre>
-            <fechaInicio> descripcionFecha </fechaInicio>
-            <estado> $estado </estado>
-            <fechaFinal> $descripcionFecha </fechaFinal>
+            <instancia id="KJKLJ565">
+                <idConfiguracion> config2 </idConfiguracion>
+                <nombre> Backend </nombre>
+                <fechaInicio> 01/01/2025 </fechaInicio>
+                <estado> Vigente </estado>
+                <fechaFinal> 01/12/2025 </fechaFinal>
+            </instancia>
+            <instancia id="456FA586">
+                <idConfiguracion> config1 </idConfiguracion>
+                <nombre> frontend </nombre>
+                <fechaInicio> Guatemala, 1/1/2025 </fechaInicio>
+                <estado>vigente</estado>
+                <fechaFinal> en la ciudad de guatemala 01/12/2025 se brindara el servicio</fechaFinal>
             </instancia>
         </listaInstancias>
         <listaInstancias>
-            <instancia id="idInstancia">
-            <idConfiguracion> idConfiguracion </idConfiguracion>
-            <nombre> nombreInstancia </nombre>
-            <fechaInicio> descripcionFecha </fechaInicio>
-            <estado> $estado </estado>
-            <fechaFinal> $descripcionFecha </fechaFinal>
+            <instancia id="111111">
+                <idConfiguracion> config2 </idConfiguracion>
+                <nombre> Backend2 </nombre>
+                <fechaInicio> 02/02/2025 </fechaInicio>
+                <estado> Vigente </estado>
+                <fechaFinal> 02/12/2025 </fechaFinal>
+            </instancia>
+            <instancia id="222222">
+                <idConfiguracion> config2 </idConfiguracion>
+                <nombre> Backend3 </nombre>
+                <fechaInicio>  2/02/2025 Ciudad de guatemla</fechaInicio>
+                <estado> Vigente </estado>
+                <fechaFinal> en la ciudad de guatemala 2/12/2025 se brindara el servicio</fechaFinal>
             </instancia>
         </listaInstancias>
     </cliente>
 </listaClientes>
-
 </archivoConfiguraciones>
