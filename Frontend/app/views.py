@@ -3,7 +3,7 @@ import requests
 
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'login.html')
 
 def subirConfig(request):
     if request.method == 'POST':
@@ -41,3 +41,10 @@ def subirConfig(request):
 
     else:
         return render(request, 'subirConfig.html')
+
+
+def subirConsumos(request):
+    return render(request, 'subirConsumos.html')
+
+def panelOpciones(request):
+    return render(request, 'panelOpciones.html')
