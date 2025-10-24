@@ -2,7 +2,7 @@
 <listadoConsumos>
  <consumo nitCliente="34390-9" idInstancia="KJKLJ565">
     <tiempo> 1.75 horas </tiempo>
-    <fechaHora> 2/4/2025 4:25, guatemala</fechaHora>
+    <fechaHora> 2/4/2025 14:25, guatemala</fechaHora>
  </consumo>
  <consumo nitCliente="34390-k" idInstancia="456FA586">
     <tiempo> 60 minutos </tiempo>
@@ -10,6 +10,6 @@
  </consumo>
  <consumo nitCliente="34390-k" idInstancia="456FA586">
     <tiempo> 1 hora y 45 minutos </tiempo>
-    <fechaHora> 22/04/2025 16:32</fechaHora>
+    <fechaHora> 22/04/2025 12:25 </fechaHora>
  </consumo>
 </listadoConsumos>
