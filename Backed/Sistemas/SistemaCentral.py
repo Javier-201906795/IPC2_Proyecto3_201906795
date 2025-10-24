@@ -19,6 +19,9 @@ class SistemaCentral():
         self.ArchivoConsumos = None
         self.SisSalidaXMLCons = SistemaSalidaXMLconsumos()
     
+    def Test(self):
+        print('Test...')
+    
     def LeerArchivo(self,ruta):
         self.SisLeerArhvXML.asignarruta(ruta)
         #Leer Archivo XML

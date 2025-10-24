@@ -30,6 +30,15 @@ def inicio():
     except Exception as e:
         print('!!! Error FLASK inicio() !!!\n',e)
 
+@app.route('/procesarConfig',   methods=['GET','POST'])
+def procesarConfig():
+    try:
+        SisCentral = app.config['sistema_central']
+        SisCentral.Test()
+        return 'Archivo procesando ver consola flask'
+    except Exception as e:
+        print('!!! Error FLASK inicio() !!!\n',e)
+
 @app.route('/subirConfig', methods=['POST'])
 def subirConfig():
     try:
