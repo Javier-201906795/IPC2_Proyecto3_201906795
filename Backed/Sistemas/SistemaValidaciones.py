@@ -76,7 +76,11 @@ class SistemaValidaciones():
                             minutos = numero
 
             #Horas total
-            horastotal = float(horas) + float(minutos)/60
+            horastotal = 0
+            try:
+                horastotal = float(horas) + float(minutos)/60
+            except:
+                self.msg(f'Error en validartiempoconsumido() Valor numerico -> {txttiempo} ->')
 
             return horastotal
         except Exception as e:
