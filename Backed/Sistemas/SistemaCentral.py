@@ -4,6 +4,7 @@ from SistemaLecturaXML import SistemaLeerArchivosXML
 from SistemaValidaciones import SistemaValidaciones
 from SistemaSalidaXML import SistemaSalidaXML
 from SistemaLecturaXMLconsumos import SistemaLeerArchivosXMLconsumos
+from SistemaSalidaXMLconsumos import SistemaSalidaXMLconsumos
 
 class SistemaCentral():
     def __init__(self):
@@ -16,6 +17,7 @@ class SistemaCentral():
 
         self.SisLeerArhvXMLCons = SistemaLeerArchivosXMLconsumos()
         self.ArchivoConsumos = None
+        self.SisSalidaXMLCons = SistemaSalidaXMLconsumos()
     
     def LeerArchivo(self,ruta):
         self.SisLeerArhvXML.asignarruta(ruta)
@@ -80,11 +82,11 @@ class SistemaCentral():
     def GuaradarArchivoConsumos(self, ruta):
         pass
         #Asignar Ruta
-        # self.SisSalidaXML.asignarruta(ruta)
+        self.SisSalidaXMLCons.asignarruta(ruta)
         # #Enviar informacion
-        # self.SisSalidaXML.asignarArchivoConfiguraciones(self.ArchivoConfiguracion)
+        self.SisSalidaXMLCons.asignarArchivoConfiguraciones(self.ArchivoConfiguracion)
         # #Procesar info
-        # self.SisSalidaXML.GuardarArchivoConfiguraicones()
+        self.SisSalidaXMLCons.GuardarArchivoConfiguraciones()
 
 
 
