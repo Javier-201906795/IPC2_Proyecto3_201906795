@@ -42,7 +42,7 @@ def procesarConfig():
 @app.route('/subirConfig', methods=['POST'])
 def subirConfig():
     try:
-        mensaje = ''  # ✅ se inicializa correctamente
+        mensaje = '' 
 
         if 'archivo' not in request.files:
             mensaje = '!! No se encontró el archivo !!'
