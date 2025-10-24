@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sistema riego invernaderos</title>
+
+    <!-- Bootstrap CSS (CDN solicitado) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      body { background: #f5f7fb; }
+      .card-centered { max-width: 36rem; width: 100%; }
+      .file-name { font-size: .9rem; color: #495057; }
+    </style>
+  </head>
+  <body>
+
+    <main class="vh-100 d-flex align-items-center justify-content-center">
+      <div class="card shadow-sm card-centered">
+        <div class="card-body text-center">
+          <h1 class="card-title mb-3"> GuateRiegos 2.0</h1>
+          <p class="text-muted mb-4">Sistema riego invernaderos</p>
+
+          <!-- Formulario para subir archivo -->
+          <form id="uploadForm" action="/" method="post" enctype="multipart/form-data">
+            <div class="d-grid gap-2 mb-3">
+              <input id="fileInput" name="archivo" type="file" accept=".xml,.json,.txt" class="form-control mb-2">
+              <button type="submit" class="btn btn-primary">Cargar</button>
+            </div>
+          </form>
+
+          
+
+
+          <!-- Botones secundarios -->
+          <div class=" justify-content-sm-center">
+            <a id ="btnProcesar" class="btn btn-primary" href="/ejecutarprograma" role="button">Procesar</a>
+          </div>
+          <br>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <a class="btn btn-primary" href="/resumen" role="button">Ver Resumen</a>
+            <a class="btn btn-secondary" href="/selinvernadero" role="button">Seleccionar invernadero</a>
+          </div>
+          <br>
+          <div class=" justify-content-sm-center">
+            <a class="btn btn-primary" href="/" role="button">Inicio</a>
+            <a class="btn btn-secondary" href="https://github.com/Javier-201906795/IPC2_Proyecto2_201906795/blob/main/DOCUMENTACION_IPC2_Proyecto2_20190695.pdf" role="button">Documentacion</a>
+          </div>
+
+          <!-- Mensaje de advertencia o éxito -->
+          
+          <div id="listaalertas" class="mt-3">
+            {% if baneraArchivo %}
+            <div class="alert alert-success" role="alert" id="alertMessage">
+                Archivo cargado con éxito
+            </div>
+            {% endif %}
+            {% if archivoProcesado %}
+            <div class="alert alert-success" role="alert" id="alertMessage">
+                Archivo procesado en sistema central
+            </div>
+            {% endif %}
+          </div>
+          
+
+        </div>
+      </div>
+    </main>
+
+
+    <!-- Bootstrap JS (CDNs solicitados) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
