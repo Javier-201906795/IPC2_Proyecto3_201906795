@@ -37,12 +37,50 @@ class SistemaValidaciones():
                     #Validar tiempo
                     Consumo.tiempo = self.validartiempoconsumido(Consumo.tiempo)
                     #Validar fechaHora
+                    Consumo.fechahora = self.validarfechaHora(Consumo.fechahora)
 
                     Consumo.desplegar()
                     print('-------')
 
         except Exception as e:
             self.msg('ValidarArchivoConsumos',e)
+
+    def validarfechaHora(self,txtfechahora):
+        try:
+            #Obtener Fecha
+            fecha = self.validarfecha(txtfechahora)
+            #Obtener Hora
+            hora = 0
+            fraces = str(txtfechahora).lstrip().rstrip().split()
+            
+            banderaprimero = False
+            for palabra in fraces:
+                if ':' in palabra and banderaprimero == False:
+                    banderaprimero = True
+                    txthora = ''
+                    #Limipiar si hay comas o otros valores
+                    for letra in palabra:
+                        if letra in [':','1','2','3','4','5','6','7','8','9','0']:
+                            txthora += letra
+                    #Convertir a hora
+                    try:
+                        try:
+                            #Formato 24 hora
+                            hora = datetime.strptime(txthora, "%H:%M")  
+                        except:
+                            #Formato 12 horas
+                            hora = datetime.strptime(txthora, "%I:%M")  
+                        #Entregar en formato 24 horas
+                        hora = hora.strftime("%H:%M")
+                        print('hora', hora)
+                    except Exception as e:
+                        self.msg(f'Error consumos al convertir a hora -> {txtfechahora}',e)
+            
+
+            return f'{fecha} {hora}' 
+        except Exception as e:
+            self.msg('Error en validarfechaHor',e)
+    
     
     def validartiempoconsumido(self, txttiempo):
         try:
