@@ -2,8 +2,13 @@ from flask import Flask, request, render_template, redirect, url_for
 from flask_cors import CORS
 from flask.json import jsonify
 
-from Sistemas.SistemaCentral import SistemaCentral
+
+import sys
 import os
+
+sys.path.append(os.path.join(os.path.dirname(__file__), "Sistemas"))
+from SistemaCentral import SistemaCentral
+
 
 #Crear app
 app = Flask(__name__)
