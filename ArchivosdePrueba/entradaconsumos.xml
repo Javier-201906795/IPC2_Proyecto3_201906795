@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<listadoConsumos>
+ <consumo nitCliente="34390-9" idInstancia="KJKLJ565">
+    <tiempo> 1.75 horas </tiempo>
+    <fechaHora> 2/4/2025 23:12, guatemala</fechaHora>
+ </consumo>
+ <consumo nitCliente="34390-k" idInstancia="456FA586">
+    <tiempo> 60 minutos </tiempo>
+    <fechaHora> en la ciudad de guatemala 01/12/2025 13:21 se brindara el servicio </fechaHora>
+ </consumo>
+ <consumo nitCliente="34390-k" idInstancia="456FA586">
+    <tiempo> 1 hora y 45 minutos </tiempo>
+    <fechaHora> 22/04/2025 5:23</fechaHora>
+ </consumo>
+</listadoConsumos>
