@@ -35,6 +35,7 @@ class SistemaValidaciones():
                     #Validar nit
                     Consumo.nitcliente =self.validarnit(Consumo.nitcliente)
                     #Validar tiempo
+                    Consumo.tiempo = self.validartiempoconsumido(Consumo.tiempo)
                     #Validar fechaHora
 
                     Consumo.desplegar()
@@ -42,6 +43,28 @@ class SistemaValidaciones():
 
         except Exception as e:
             self.msg('ValidarArchivoConsumos',e)
+    
+    def validartiempoconsumido(self, txttiempo):
+        try:
+            tiempo = str(txttiempo).lstrip().rstrip()
+            fraces = tiempo.split()
+            numero = 0
+            palabra = ''
+            encontronumero = False  
+            for palabra in fraces:
+                #Tratar convertir en numero
+                try:
+                    numero = float(palabra)
+                    if encontronumero == False:
+                        encontronumero = True
+                except:
+                    #Obtener Tag
+                    if palabra != '' or palabra != None and encontronumero == True:
+                        tag = str(palabra).strip()
+
+            return f'{numero} {tag}'
+        except Exception as e:
+            self.msg('Error en validartiempoconsumido()',e)
 
 
     def ValidarArchivoConfiguaracion(self):
