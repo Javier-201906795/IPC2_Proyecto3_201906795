@@ -26,10 +26,19 @@ class SistemaValidaciones():
             if self.ArchivoConsumos != None:
                 ListaConsumos = self.ArchivoConsumos.Listaconsumos
                 for Consumo in ListaConsumos:
+                    #Obtener datos
                     Consumo.desplegar()
+                    
+                    # print(Consumo.idinstancia)
+                    # print(Consumo.tiempo)
+                    # print(Consumo.fechahora)
                     #Validar nit
+                    Consumo.nitcliente =self.validarnit(Consumo.nitcliente)
                     #Validar tiempo
                     #Validar fechaHora
+
+                    Consumo.desplegar()
+                    print('-------')
 
         except Exception as e:
             self.msg('ValidarArchivoConsumos',e)
@@ -167,7 +176,7 @@ class SistemaValidaciones():
                     digitovalidacion = ultimodato[1:2]
                     opcionesvalidas = ['0','1','2','3','4','5','6','7','8','9','K','k']
                     if digitovalidacion in opcionesvalidas:
-                        self.msg(f'nit valido -> {nit}')
+                        # self.msg(f'nit valido -> {nit}')
                         return nit
                     else:
                         mensaje=f'nit Invalido! ultimo digitio invalido -> {nit}'
