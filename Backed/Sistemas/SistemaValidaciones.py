@@ -17,28 +17,28 @@ class SistemaValidaciones():
     def obtenerArchivoConfiguracion(self):
         return self.ArchivoConfiguracion
     
+    def obtenerArchivoConsumos(self):
+        return self.ArchivoConsumos
+
     def obtenermensajeerrores(self):
         return self.msjErrores
 
     def ValidarArchivoConsumos(self):
         try:
             self.msg('Validando Archivo consumos')
+            self.msjErrores = ''
             if self.ArchivoConsumos != None:
                 ListaConsumos = self.ArchivoConsumos.Listaconsumos
                 for Consumo in ListaConsumos:
                     #Obtener datos
                     Consumo.desplegar()
-                    
-                    # print(Consumo.idinstancia)
-                    # print(Consumo.tiempo)
-                    # print(Consumo.fechahora)
                     #Validar nit
                     Consumo.nitcliente =self.validarnit(Consumo.nitcliente)
                     #Validar tiempo
                     Consumo.tiempo = self.validartiempoconsumido(Consumo.tiempo)
                     #Validar fechaHora
                     Consumo.fechahora = self.validarfechaHora(Consumo.fechahora)
-
+                    #Despues de modificaciones
                     Consumo.desplegar()
                     print('-------')
 
@@ -84,6 +84,10 @@ class SistemaValidaciones():
     
     def validartiempoconsumido(self, txttiempo):
         try:
+            if txttiempo == '':
+                self.msjErrores += f'Error en tiempo esta vacio el campo -> {txttiempo}'
+                return f'{0} horas'
+        
             tiempo = str(txttiempo).lstrip().rstrip()
             fraces = tiempo.split()
             numero = 0
@@ -119,6 +123,9 @@ class SistemaValidaciones():
                 horastotal = float(horas) + float(minutos)/60
             except:
                 self.msg(f'Error en validartiempoconsumido() Valor numerico -> {txttiempo} ->')
+
+            if horastotal == 0:
+                self.msjErrores += f'Error en tiempo no hay tiempo numerico-> {txttiempo}'
 
             return f'{horastotal} horas'
         except Exception as e:

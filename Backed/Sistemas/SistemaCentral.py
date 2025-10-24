@@ -71,10 +71,10 @@ class SistemaCentral():
         #Validar
         self.SisVal.ValidarArchivoConsumos()
         # #Guardar
-        # self.ArchivoConfiguracion = self.SisVal.obtenerArchivoConfiguracion()
-        # #Mensaje errores
-        # self.mensajeErroresXML = self.SisVal.obtenermensajeerrores()
-        # print('msg Errores: ', self.mensajeErroresXML)
+        self.ArchivoConsumos = self.SisVal.obtenerArchivoConsumos()
+        #Mensaje errores
+        self.mensajeErroresXML = self.SisVal.obtenermensajeerrores()
+        print('msg Errores: ', self.mensajeErroresXML)
 
 
 
