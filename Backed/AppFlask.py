@@ -2,12 +2,21 @@ from flask import Flask, request, render_template, redirect, url_for
 from flask_cors import CORS
 from flask.json import jsonify
 
+from Sistemas.SistemaCentral import SistemaCentral
 import os
 
 #Crear app
 app = Flask(__name__)
 #CORS
 cors = CORS(app)
+
+
+
+app.config['sistema_central']  = SistemaCentral()
+
+
+
+
 
 @app.route('/',   methods=['GET','POST'])
 def inicio():
