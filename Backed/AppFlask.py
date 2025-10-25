@@ -77,6 +77,41 @@ def subirConfig():
     except Exception as e:
         print('!!! Error FLASK subirConfig() !!!\n', e)
         return f'Error en el servidor Flask: {str(e)}', 500
+    
+
+    # ---- CRUD Recursos ----
+@app.route('/resources', methods=['GET','POST'])
+def resources():
+    SisCntr = app.config['sistema_central']
+    try:
+        if request.method == 'GET':
+            # Debe devolver lista serializable
+            return jsonify(SisCntr.list_recursos()), 200
+        data = request.json
+        SisCntr.add_recurso(data)  # adaptar nombre y firma
+        return jsonify({"message":"recurso creado"}), 201
+    except Exception as e:
+        print("Error resources:", e)
+        return jsonify({"error": str(e)}), 500
+
+@app.route('/resources/<string:res_id>', methods=['GET','PUT','DELETE'])
+def resource_item(res_id):
+    SisCntr = app.config['sistema_central']
+    try:
+        if request.method == 'GET':
+            return jsonify(SisCntr.get_recurso(res_id)), 200
+        if request.method == 'PUT':
+            data = request.json
+            SisCntr.update_recurso(res_id, data)
+            return jsonify({"message":"recurso actualizado"}), 200
+        if request.method == 'DELETE':
+            SisCntr.delete_recurso(res_id)
+            return jsonify({"message":"recurso eliminado"}), 200
+    except Exception as e:
+        print("Error resource_item:", e)
+        return jsonify({"error": str(e)}), 500
+
+
 
 
 
