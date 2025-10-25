@@ -60,3 +60,6 @@ def crearNuevoDato(request):
 
 def selcliFacturacion(request):
     return render(request, 'SeleccionCliente.html')
+
+def facturacion(request):
+    return render(request, 'facturacion.html')

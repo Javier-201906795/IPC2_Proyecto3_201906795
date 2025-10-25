@@ -11,4 +11,5 @@ urlpatterns = [
     path('consultaPanel', views.consultaPanel, name='consultaPanel'),
     path('crearNuevoDato', views.crearNuevoDato, name= 'crearNuevoDat'),
     path('seleccionarClientefacturacion', views.selcliFacturacion, name= 'selcliFacturacion'),
+    path('facturacion', views.facturacion, name= 'facturacion'),
 ]
