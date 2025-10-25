@@ -57,3 +57,6 @@ def consultaPanel(request):
 
 def crearNuevoDato(request):
     return render(request, 'CrearNuevo.html')
+
+def selcliFacturacion(request):
+    return render(request, 'SeleccionCliente.html')
