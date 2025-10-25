@@ -63,3 +63,6 @@ def selcliFacturacion(request):
 
 def facturacion(request):
     return render(request, 'facturacion.html')
+
+def ayuda(request):
+    return render(request, 'ayuda.html')
