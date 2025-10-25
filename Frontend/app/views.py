@@ -54,3 +54,6 @@ def operacionesSistema(request):
 
 def consultaPanel(request):
     return render(request, 'ConsultaPanel.html')
+
+def crearNuevoDato(request):
+    return render(request, 'CrearNuevo.html')
