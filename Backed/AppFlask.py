@@ -79,7 +79,7 @@ def subirConfig():
         return f'Error en el servidor Flask: {str(e)}', 500
     
 
-    # ---- CRUD Recursos ----
+# ---- CRUD Recursos ----
 @app.route('/resources', methods=['GET','POST'])
 def resources():
     SisCntr = app.config['sistema_central']
@@ -111,7 +111,36 @@ def resource_item(res_id):
         print("Error resource_item:", e)
         return jsonify({"error": str(e)}), 500
 
+# ---- CRUD Categorias ----
+@app.route('/categories', methods=['GET','POST'])
+def categories():
+    SisCntr = app.config['sistema_central']
+    try:
+        if request.method == 'GET':
+            return jsonify(SisCntr.list_categorias()), 200
+        data = request.json
+        SisCntr.add_categoria(data)
+        return jsonify({"message":"categoria creada"}), 201
+    except Exception as e:
+        print("Error categories:", e)
+        return jsonify({"error": str(e)}), 500
 
+@app.route('/categories/<string:cat_id>', methods=['GET','PUT','DELETE'])
+def category_item(cat_id):
+    SisCntr = app.config['sistema_central']
+    try:
+        if request.method == 'GET':
+            return jsonify(SisCntr.get_categoria(cat_id)), 200
+        if request.method == 'PUT':
+            data = request.json
+            SisCntr.update_categoria(cat_id, data)
+            return jsonify({"message":"categoria actualizada"}), 200
+        if request.method == 'DELETE':
+            SisCntr.delete_categoria(cat_id)
+            return jsonify({"message":"categoria eliminada"}), 200
+    except Exception as e:
+        print("Error category_item:", e)
+        return jsonify({"error": str(e)}), 500
 
 
 
