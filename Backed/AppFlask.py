@@ -143,6 +143,24 @@ def category_item(cat_id):
         return jsonify({"error": str(e)}), 500
 
 
+# ---- Clientes e Instancias ----
+@app.route('/clients', methods=['GET','POST'])
+def clients():
+    pass
+
+@app.route('/clients/<string:nit>', methods=['GET','PUT','DELETE'])
+def client_item(nit):
+    pass
+
+@app.route('/clients/<string:nit>/instances', methods=['GET','POST'])
+def client_instances(nit):
+    pass
+
+
+@app.route('/clients/<string:nit>/instances/<string:inst_id>', methods=['GET','PUT','DELETE'])
+def client_instance_item(nit, inst_id):
+    pass
+
 
 
 
