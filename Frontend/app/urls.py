@@ -7,4 +7,6 @@ urlpatterns = [
     path('subirConfiguracion', views.subirConfig, name='subirConfig'),
     path('subirConsumos', views.subirConsumos, name='subirConsumos'),
     path('panelOpciones', views.panelOpciones, name='panelOpciones'),
+    path('operacionesSistema', views.operacionesSistema, name='operacionesSistema'),
+    path('consultaPanel', views.consultaPanel, name='consultaPanel'),
 ]

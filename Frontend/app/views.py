@@ -48,3 +48,9 @@ def subirConsumos(request):
 
 def panelOpciones(request):
     return render(request, 'panelOpciones.html')
+
+def operacionesSistema(request):
+    return render(request, 'OperacionesSistema.html')
+
+def consultaPanel(request):
+    return render(request, 'ConsultaPanel.html')
